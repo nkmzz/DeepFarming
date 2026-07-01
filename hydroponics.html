@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>수경재배 전략 · 스마트팜 시스템 개발 프로젝트</title>
+<link href="style.css" rel="stylesheet"/>
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link" href="differentiation.html">차별화 포인트</a><a class="nav-link" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link active" href="hydroponics.html">수경재배 전략</a><a class="nav-link" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+<div class="breadcrumbs"><a href="index.html">홈</a> / 수경재배 전략</div>
+<div class="page-title"><div class="kicker">03 · Hydroponics</div><h1>수경재배 전략</h1><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p></div>
+<div class="layout"><div class="content-stack"><section id="hydro">
+<div class="section-head"><div class="kicker">03 · Hydroponics</div><h2>왜 수경재배를 우선 보는가</h2><p>수경재배는 환경 변수를 숫자로 만들기 쉽고, 자동화·AI화에 유리하다.</p></div>
+<div class="section-body">
+<div class="split">
+<div class="card"><h3>장점</h3><ul class="checks"><li>pH, EC, 수온, 급수량 등 데이터화가 쉬움</li><li>펌프, 밸브, 센서 제어와 잘 맞음</li><li>흙 편차, 벌레, 냄새 부담 감소</li><li>LED, 선반, 카메라와 결합해 실내화 가능</li><li>환경 변수와 수확량/상품률의 연결이 비교적 명확함</li></ul></div>
+<div class="card"><h3>단점/리스크</h3><ul class="checks"><li>pH/EC 센서 보정과 드리프트 관리 필요</li><li>물 오염이나 병이 라인 전체로 퍼질 수 있음</li><li>정전/펌프 고장에 취약하므로 Fail-safe 필요</li><li>양액·수온·광량 기준을 잡아야 함</li><li>습식 환경이므로 전기 안전이 중요</li></ul></div>
+</div>
+<h3>수경재배 방식 세부 분류</h3>
+<table>
+<tr><th>수경 방식</th><th>구조</th><th>적합 작물</th><th>프로젝트에서의 역할</th></tr>
+<tr><td>저면관수 트레이</td><td>아랫 트레이의 물을 매트/뿌리가 흡수</td><td>마이크로그린·새싹</td><td>최초 파일럿, 자동급수 테스트</td></tr>
+<tr><td>DWC</td><td>뿌리를 산소 공급되는 물에 담금</td><td>상추·허브</td><td>초기 상추 실험 가능</td></tr>
+<tr><td>NFT</td><td>얇은 양액 흐름을 뿌리에 지속 공급</td><td>상추·청경채·루꼴라</td><td>상추 기준 모델 이후 확장</td></tr>
+<tr><td>점적관수 + 배지</td><td>배지에 정량 양액 공급</td><td>깻잎·바질·딸기</td><td>2단계 확장 후보</td></tr>
+<tr><td>분무식/에어로포닉스</td><td>뿌리에 미스트 분사</td><td>고난도 작물/연구용</td><td>장기 R&amp;D</td></tr>
+</table>
+</div>
+</section>
+<section id="hydroponic-photos">
+  <div class="section-head"><div class="kicker">Visual Reference</div><h2>수경 방식별 대표사진</h2><p>이해를 돕기 위한 외부 레퍼런스 이미지다. 실제 배포용으로 쓰기 전에는 라이선스와 출처 표기를 다시 정리한다.</p></div>
+  <div class="section-body">
+    <div class="photo-grid">
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Lufa_Farms_Microgreens_in_Trays.jpg?width=960" alt="마이크로그린 트레이 재배 예시" loading="lazy" referrerpolicy="no-referrer"/>
+        <figcaption><b>저면관수 트레이 / 마이크로그린</b><span>얕은 트레이와 매트/배지를 기준으로 물 공급 타이밍, 환기, 곰팡이 방지를 보는 초기 파일럿 구조.</span><a href="https://commons.wikimedia.org/wiki/File:Lufa_Farms_Microgreens_in_Trays.jpg" target="_blank" rel="noopener">Reference: Wikimedia Commons · Lufa Farms Microgreens in Trays</a></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Deep_water_culture.jpg?width=960" alt="DWC deep water culture 상추 재배 예시" loading="lazy" referrerpolicy="no-referrer"/>
+        <figcaption><b>DWC / Deep Water Culture</b><span>작물을 보드나 컵에 고정하고 뿌리를 산소가 공급되는 양액에 담그는 방식. 상추·허브 초기 실험에 이해하기 쉽다.</span><a href="https://commons.wikimedia.org/wiki/File:Deep_water_culture.jpg" target="_blank" rel="noopener">Reference: Wikimedia Commons · Deep water culture</a></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hydroponics_%2833185459271%29.jpg?width=960" alt="NFT hydroponics PVC channel 재배 예시" loading="lazy" referrerpolicy="no-referrer"/>
+        <figcaption><b>NFT / Nutrient Film Technique</b><span>긴 채널 안으로 얇은 양액 흐름을 계속 흘려보내는 구조. 상추·청경채·루꼴라 기준 모델 이후 확장 후보.</span><a href="https://commons.wikimedia.org/wiki/File:Hydroponics_(33185459271).jpg" target="_blank" rel="noopener">Reference: Wikimedia Commons · Oregon State University NFT photo</a></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://extension.okstate.edu/fact-sheets/images/electrical-conductivity-and-ph-guide-for-hydroponics/figure-1-1.jpg" alt="Dutch bucket drip hydroponics with clay balls" loading="lazy" referrerpolicy="no-referrer"/>
+        <figcaption><b>점적관수 + 배지 / Dutch Bucket 계열</b><span>배지에 식물을 지지하고 튜브/드리퍼로 양액을 정량 공급하는 방식. 바질·깻잎·딸기 같은 2단계 확장 후보와 연결된다.</span><a href="https://extension.okstate.edu/fact-sheets/electrical-conductivity-and-ph-guide-for-hydroponics" target="_blank" rel="noopener">Reference: Oklahoma State University Extension · Dutch Bucket figure</a></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Aeroponic_roots.jpg?width=960" alt="Aeroponic roots exposed in air" loading="lazy" referrerpolicy="no-referrer"/>
+        <figcaption><b>분무식 / 에어로포닉스</b><span>뿌리를 공중에 노출시키고 미스트로 양액을 분사하는 방식. 산소 공급은 좋지만 노즐 막힘·압력·제어 난이도가 커서 장기 R&amp;D로 둔다.</span><a href="https://commons.wikimedia.org/wiki/File:Aeroponic_roots.jpg" target="_blank" rel="noopener">Reference: Wikimedia Commons · Aeroponic roots</a></figcaption>
+      </figure>
+    </div>
+  </div>
+</section><section id="hydroponic-definition-note">
+  <div class="section-head"><div class="kicker">Definition Note</div><h2>수경 방식 안에서의 저면관수 위치</h2><p>수경재배를 “흙 없이 물/양액 중심으로 키우는 재배”라고 보면, 그 안에서 물을 어떻게 공급하느냐가 세부 방식이 된다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>저면관수는 수경 전용이 아님</h3><p>저면관수는 흙 화분에도 쓰이고, 코코피트/상토 트레이에도 쓰이며, 무토양 매트 트레이에도 쓰인다. 따라서 “저면관수 = 수경”으로 단정하면 안 된다.</p></div>
+      <div class="card"><h3>프로젝트에서의 의미</h3><p>이 프로젝트에서 보는 것은 흙재배 저면관수가 아니라, <b>무토양 매트 또는 비토양 배지 + 저면관수</b>를 자동화하는 구조다.</p></div>
+      <div class="card"><h3>DWC/NFT와의 차이</h3><p>DWC/NFT는 상추처럼 장기간 양액을 먹이는 작물에 적합하다. 마이크로그린은 단기·고밀도·트레이 재배라 수분/환기/곰팡이 제어가 더 중요하다.</p></div>
+      <div class="card"><h3>상토는 기준군, 무토양은 목표 후보</h3><p>상토/코코피트는 재배 안정성 비교용 기준군으로 두고, 자동화·청결성·반복성·제품화는 무토양 매트형으로 검증한다.</p></div>
+    </div>
+    <div class="callout" style="margin-top:16px">정리: 수경 방식 안에 급수 방식이 들어간다고 보는 것이 맞다. 다만 저면관수는 흙재배에도 쓰이는 범용 급수 방식이므로, 문서에서는 “무토양 매트형 저면관수”와 “흙/상토형 저면관수”를 분리해서 본다.</div>
+  </div>
+</section>
+<section id="radish-soilless-irrigation">
+  <div class="section-head"><div class="kicker">Radish Microgreen Focus</div><h2>무순 기준: 왜 무토양 매트형 저면관수를 메인 후보로 보는가</h2><p>무순을 잘 키우는 것보다 자동화·청결성·반복 생산성을 만드는 것이 프로젝트 목적이다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>구분</th><th>상토/코코피트 + 저면관수</th><th>무토양 매트 + 저면관수</th></tr></thead><tbody>
+      <tr><td>재배 안정성</td><td>수분 버퍼가 커서 초보 안정성 높음</td><td>수분 버퍼가 작아 제어 민감</td></tr>
+      <tr><td>자동화성</td><td>배지 상태가 복잡해 센서 해석이 애매할 수 있음</td><td>트레이 무게·급수량·배수량으로 수치화하기 쉬움</td></tr>
+      <tr><td>청결성</td><td>수확 시 흙/배지 오염 가능성</td><td>수확물 청결성과 포장성이 유리할 가능성</td></tr>
+      <tr><td>제품화</td><td>재배법으로는 무난하나 하드웨어 차별화가 약할 수 있음</td><td>전용 트레이·매트·급수 제어 모듈로 확장 가능</td></tr>
+      <tr><td>프로젝트 역할</td><td>재배 안정성 기준군</td><td>자동화/차별화 메인 후보</td></tr>
+    </tbody></table></div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card"><h3>설계 과제</h3><ul class="checks"><li>트레이 무게 기반 수분 상태 추정</li><li>급수-흡수-배수-건조 사이클</li><li>급수 후 팬 연동 환기</li><li>매트별 흡수량/건조속도/뿌리 고정력 비교</li><li>곰팡이/과습 조건 사전 억제</li></ul></div>
+      <div class="card"><h3>4일 수확 포인트</h3><p>영상에서 언급된 4일 수확은 매우 중요한 힌트다. 다만 우리 시스템에서는 “수확 가능”과 “판매 가능한 품질”을 분리해 키, 중량, 색, 맛, 청결성, 포장 단위로 검증해야 한다.</p><p><a href="differentiation.html">사업적·기술적 차별화 포인트 페이지에서 검증 과제 보기 →</a></p></div>
+    </div>
+  </div>
+</section>
+<div class="archive-block" id="detail"><div class="archive-head"><h2>이 카테고리의 상세 슬라이드</h2><p>기존 PPT에서 해당 주제와 연결되는 슬라이드만 모았다. 필요한 부분만 펼쳐서 보면 된다.</p></div><details class="slide-detail">
+<summary><span>Slide 06</span> 왜 수경재배를 우선 보는가</summary>
+<div class="slide-body">사용자의 전기전자/센서/제어/데이터 역량과 가장 직접적으로 연결되는 재배 방식<br/><br/>수경재배 장점 | 프로젝트 관점의 의미<br/>데이터화가 쉬움 | pH, EC, 수온, 수위, 급수량, 광량을 숫자로 기록하기 좋음<br/>자동화가 쉬움 | 펌프·밸브·LED·팬·센서·MCU 제어와 구조적으로 잘 맞음<br/>흙 변수가 줄어듦 | 벌레/냄새/토양 편차가 줄어 실패 원인 분리가 쉬움<br/>실내/다단화가 쉬움 | 1평 공간에서 선반·LED·카메라 시스템으로 확장 가능<br/>AI 학습에 유리 | 환경 변수와 결과 라벨(수확량/상품률)을 연결하기 비교적 명확함<br/><br/>주의점 | 왜 중요한가<br/>센서 드리프트 | pH/EC 값이 틀리면 제어와 AI도 같이 틀어짐<br/>물 오염/바이오필름 | 한 라인의 문제가 전체 작물에 퍼질 수 있음<br/>정전/펌프 고장 | 물·전기 안전과 fail-safe가 필수<br/>초기 기준값 필요 | 작물별 pH/EC/광량/수온 기준을 직접 잡아야 함<br/><br/>정리<br/>수경재배는 “농업 지식이 적은 상태에서도 전자/제어/데이터 역량으로 접근하기 좋은 방식”이다. 단, 센서 신뢰도와 물·전기 안전은 초기부터 보수적으로 설계해야 한다.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 07</span> 수경재배 방식 선택 지도</summary>
+<div class="slide-body">작물과 장비 목적에 따라 저면관수·DWC·NFT·점적관수+배지를 분리해서 관리<br/><br/>방식 | 구조 | 적합 작물 | 내 프로젝트에서의 위치<br/>저면관수 트레이 | 아래 물을 매트/뿌리가 흡수 | 마이크로그린·새싹 | 초기 파일럿/장비 검증<br/>DWC | 뿌리를 산소 공급된 양액에 담금 | 상추·허브 일부 | 소형 수경 실험용<br/>NFT | 얇은 양액 흐름을 계속 순환 | 상추·청경채·루꼴라 | 상추 기준 작물의 확장 후보<br/>점적관수+배지 | 배지에 양액을 점적 공급 | 바질·깻잎·딸기 | 2단계/고부가 작물용<br/>에어로포닉스 | 뿌리에 양액 미스트 분사 | 연구/고난도 작물 | 초기 보류<br/><br/>초기 선택<br/>마이크로그린은 저면관수 트레이로 빠르게 시작하고, 상추부터 pH/EC/수온/광량을 본격 관리한다.<br/><br/>확장 선택<br/>상추 데이터가 안정되면 NFT/DWC를 비교하고, 판로가 보이면 바질·깻잎은 점적+배지로 분리한다.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 08</span> 마이크로그린의 위치</summary>
+<div class="slide-body">최종 사업 아이템이라기보다 빠르게 배우기 좋은 “파일럿 작물 후보”<br/><br/>마이크로그린 스마트팜 프로젝트 · 4<br/><br/>마이크로그린<br/><br/>씨앗에서 떡잎 단계까지 키우는 채소<br/>특정 식물명이 아니라 “재배 단계”의 통칭<br/>무·브로콜리·완두·해바라기 등 다양한 씨앗 적용 가능<br/><br/>원오브 아이템<br/><br/>마이크로그린만 고집할 필요는 없음<br/><br/>다만 초기 실험용으로는 사이클이 짧고, 설비가 단순하고, 실패 비용이 낮아서 데이터 수집 플랫폼을 만들기 좋다.<br/><br/>구분<br/><br/>일반 채소<br/><br/>재배 기간<br/><br/>30~90일<br/><br/>7~14일<br/><br/>초기 설비<br/><br/>상대적으로 큼<br/><br/>작게 시작 가능<br/><br/>데이터 회전<br/><br/>느림<br/><br/>빠름<br/><br/>영양액<br/><br/>작물별 관리<br/><br/>초기엔 물 중심 가능</div>
+</details><details class="slide-detail">
+<summary><span>Slide 09</span> 재배 사이클이 짧다는 장점</summary>
+<div class="slide-body">AI/자동화보다 먼저, “실험 반복 속도”가 가장 큰 무기<br/><br/>마이크로그린 스마트팜 프로젝트 · 5<br/><br/>🌿<br/><br/>무<br/><br/>7~10일<br/><br/>발아 빠름<br/><br/>🥦<br/><br/>브로콜리<br/><br/>영양 이미지 좋음<br/><br/>🫛<br/><br/>완두<br/><br/>줄기형, 부피감<br/><br/>🌻<br/><br/>해바라기<br/><br/>10~14일<br/><br/>식감·중량감<br/><br/>짧은 사이클 = 1년에 실험 반복 횟수가 많아짐<br/>→ 센서/급수/조명/트레이 구조를 빠르게 비교 가능<br/><br/>주의: 사이클이 짧다고 데이터 난이도가 사라지는 건 아님<br/>→ 파종량, 물기, 곰팡이, 환기, 수확 기준을 엄격히 고정해야 함</div>
+</details><details class="slide-detail">
+<summary><span>Slide 10</span> 재배 방식: 2단 트레이 + 저면관수</summary>
+<div class="slide-body">자동화하기 쉬운 구조부터 시작하고, 흐름/환수로 고인물 리스크를 줄임<br/><br/>마이크로그린 스마트팜 프로젝트 · 6<br/><br/>윗 트레이: 구멍 있음 / 씨앗 + 매트<br/><br/>아랫 트레이: 구멍 없음 / 물 저장<br/><br/>저면관수<br/><br/>설계 기준<br/><br/>항목<br/><br/>초안<br/><br/>윗 트레이<br/><br/>높이 2~3cm, 2~3mm 구멍<br/><br/>아랫 트레이<br/><br/>높이 3~4cm, 물 저장<br/><br/>크기<br/><br/>20×20cm부터 검토<br/><br/>제작<br/><br/>3D프린터로 직접 설계<br/><br/>운영<br/><br/>저면관수 + 주기적 환수<br/><br/>상충/주의: PLA 3D프린트는 장기 습식·세척·식품 접촉에서 불리할 수 있음. 초기 검증 후 PETG/PP/기성 트레이로 넘어갈 선택지를 열어둬야 함.</div>
+</details></div></div><aside class="side-panel"><h3>카테고리 이동</h3><a class="" href="overview.html">🧭 프로젝트 개요</a><a class="" href="decision.html">🤔 AI 필요성/사업 판단</a><a class="" href="differentiation.html">🧩 차별화 포인트</a><a class="" href="methods.html">🧱 스마트팜 농법 카테고리</a><a class="active" href="hydroponics.html">💧 수경재배 전략</a><a class="" href="crops.html">🌿 작물 카테고리 DB</a><a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a><a class="" href="data-ai.html">🧠 데이터/AI 전략</a><a class="" href="roadmap.html">🗺️ 실행 로드맵</a><a class="" href="cautions.html">⚠️ 상충·주의 포인트</a><a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+<div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid"><a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a><a class="category-card" href="decision.html"><div class="icon">🤔</div><h3>AI 필요성/사업 판단</h3><p>이 일을 해야 하는지, AI가 언제 필요한지, 소형 테스트와 대규모 목표를 분리해 판단</p><span class="go">열기 →</span></a><a class="category-card" href="differentiation.html"><div class="icon">🧩</div><h3>사업적·기술적 차별화 포인트</h3><p>무순/마이크로그린 자동화에서 일부러 남길 설계 과제와 검증 가설 정리</p><span class="go">열기 →</span></a><a class="category-card" href="methods.html"><div class="icon">🧱</div><h3>스마트팜 농법 카테고리</h3><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p><span class="go">열기 →</span></a><a class="category-card" href="crops.html"><div class="icon">🌿</div><h3>작물 카테고리 DB</h3><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p><span class="go">열기 →</span></a><a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a><a class="category-card" href="data-ai.html"><div class="icon">🧠</div><h3>데이터/AI 전략</h3><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p><span class="go">열기 →</span></a><a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a><a class="category-card" href="cautions.html"><div class="icon">⚠️</div><h3>상충·주의 포인트</h3><p>마이크로그린 위치, 센서 과투자, 햇빛 데이터, Jetson 과투자 등 리스크</p><span class="go">열기 →</span></a><a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a></div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>카테고리별 HTML 분리 · 상세자료 보존</span></div></footer>
+</body>
+</html>

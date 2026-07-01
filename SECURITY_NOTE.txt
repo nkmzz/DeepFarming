@@ -1,15 +1,13 @@
-DeepFarming security note
+Smartfarm static site security note
 
-This GitHub Pages site uses a client-side JavaScript password gate and noindex/robots hints.
-It is not real server-side authentication.
+Applied measures:
+- HTML meta noindex/nofollow/noarchive/noimageindex
+- robots.txt Disallow: /
+- JavaScript password gate on every HTML page
+- .nojekyll for GitHub Pages static hosting
 
-What it can do:
-- Stop casual visitors who do not know the password
-- Reduce search-engine discovery via robots.txt and noindex
+Important limitation:
+This is only a casual-access gate for GitHub Pages. It is not real server-side authentication.
+Anyone with repository/source access can inspect files and bypass it. Use Cloudflare Access, private hosting, or a private repository with controlled Pages support for real access control.
 
-What it cannot do:
-- Protect source files in a public repository
-- Prevent access by someone who knows the URL and inspects the source
-- Replace real authentication, private hosting, or access control
-
-For stronger protection, use Cloudflare Access, private hosting, or GitHub Enterprise/organization features that support private Pages access control.
+Password is not stored in this file. The active hash is inside auth.js.

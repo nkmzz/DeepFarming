@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>상충·주의 포인트 · 스마트팜 시스템 개발 프로젝트</title>
+<link href="style.css" rel="stylesheet"/>
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link" href="differentiation.html">차별화 포인트</a><a class="nav-link" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link" href="hydroponics.html">수경재배 전략</a><a class="nav-link" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link active" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+<div class="breadcrumbs"><a href="index.html">홈</a> / 상충·주의 포인트</div>
+<div class="page-title"><div class="kicker">08 · Conflicts &amp; Cautions</div><h1>상충·주의 포인트</h1><p>마이크로그린 위치, 가격/매출 러프 가정, 특정 보드 확정 금지, 센서·AI 과투자 리스크</p></div>
+<div class="layout"><div class="content-stack"><section id="risks">
+<div class="section-head"><div class="kicker">08 · Conflicts &amp; Cautions</div><h2>상충·주의 포인트</h2><p>대부분 충돌이라기보다 초기 범위를 낮추고 현실화한 내용이다.</p></div>
+<div class="section-body">
+<div class="grid two">
+<div class="card"><h3>마이크로그린의 위치</h3><p>최종 종착지가 아니라 빠른 학습용 파일럿. AI 제어 모델의 기준 작물은 상추가 더 적합하다.</p></div>
+<div class="card"><h3>재배 쉬움 착시</h3><p>무순은 영상상 쉽게 자라 보일 수 있다. 따라서 차별화는 재배 가능성이 아니라 자동화·청결성·반복 납품 품질에 둔다.</p></div>
+<div class="card"><h3>4일 수확 검증 필요</h3><p>4일 수확 가능성은 회전율 관점에서 중요하지만, 판매 가능한 길이·중량·맛·균일도·포장성은 별도 검증해야 한다.</p></div>
+<div class="card"><h3>센서 과투자</h3><p>pH/EC/NPK 센서는 상추 이상 엽채류에는 중요하지만, 마이크로그린 초기에는 과할 수 있다.</p></div>
+<div class="card"><h3>햇빛 데이터</h3><p>사람 학습에는 좋지만 AI 학습용 정밀 비교에는 노이즈가 크다. LED 도입 후 본격화.</p></div>
+<div class="card"><h3>3D프린트 트레이</h3><p>프로토타입에는 좋지만 식품·세척·누수·내구성 검증 후 PETG/PP/기성품 전환 고려.</p></div>
+<div class="card"><h3>Jetson Thor 과투자</h3><p>로봇 자동화 전까지는 전력·가격·운영 부담이 크다. 초기에는 Orin Nano Super급으로 충분.</p></div>
+<div class="card"><h3>자동 도징 조기 도입</h3><p>pH/EC 센서 보정 전 자동 투입은 실패 원인 분리를 어렵게 한다. 수동 기록 후 도입.</p></div>
+<div class="card"><h3>가격/매출 단정 금지</h3><p>현재 단가는 실제 시장 데이터가 아니라 파일럿 가정값이다. 소형 가게 소량 납품 기준으로 러프하게 보고, 샘플 영업 후 업데이트한다.</p></div>
+<div class="card"><h3>특정 연산보드 확정 금지</h3><p>Raspberry Pi, Jetson, Mini PC, 스마트폰/USB 카메라는 후보군이다. 보드보다 촬영 위치·조명·데이터 구조가 우선이다.</p></div>
+<div class="card"><h3>수경 적합성 단일 점수 금지</h3><p>마이크로그린은 저면관수·트레이 자동화에는 강하지만, NFT/DWC·pH/EC 최적화 기준 작물로는 상추보다 약하다.</p></div>
+<div class="card"><h3>딥러닝 시점 단정 금지</h3><p>자체 데이터로 모델을 학습하는 딥러닝은 장기 과제일 수 있지만, 이미지 지표 추출이나 기존 비전 모델 활용은 더 일찍 검토 가능하다.</p></div>
+</div>
+<div class="callout warning">하드웨어가 늘수록 데이터 품질이 자동으로 좋아지는 게 아니라, 실패 원인도 같이 늘어난다. 먼저 반복 가능한 실험 루프를 안정화한다.</div>
+</div>
+</section><div class="archive-block" id="detail"><div class="archive-head"><h2>이 카테고리의 상세 슬라이드</h2><p>기존 PPT에서 해당 주제와 연결되는 슬라이드만 모았다. 필요한 부분만 펼쳐서 보면 된다.</p></div><details class="slide-detail">
+<summary><span>Slide 44</span> 기존 구상과 업데이트 내용의 관계</summary>
+<div class="slide-body">대부분 충돌이라기보다 “초기 범위를 더 낮추고 현실화”한 것<br/><br/>마이크로그린 스마트팜 프로젝트 · 12<br/><br/>기존 생각<br/><br/>업데이트<br/><br/>판단<br/><br/>수경재배 전체 시스템<br/><br/>마이크로그린을 파일럿 후보로 추가<br/><br/>상충 아님. 초기 실험 작물로 적합<br/><br/>pH/EC/영양액 센서 중요<br/><br/>마이크로그린은 물 중심으로 가능<br/><br/>초기엔 센서 과투자 줄여도 됨<br/><br/>AI 최적화 목표<br/><br/>먼저 수동 재배·데이터 축적<br/><br/>AI는 2~3단계 이후가 현실적<br/><br/>카메라 스캔 시스템<br/><br/>초기엔 스마트폰/고정 카메라 가능<br/><br/>스캔 구조는 확장 단계로 보류 가능<br/><br/>무게는 최종 라벨<br/><br/>수확량/상품중량 측정 필요<br/><br/>기존 판단과 일치<br/><br/>LED 제어 중심<br/><br/>처음은 햇빛, 겨울 LED<br/><br/>단계 전환 로드맵으로 정리<br/><br/>한 줄 정리: “완성형 스마트팜”을 바로 만드는 게 아니라, 마이크로그린 같은 짧은 사이클 작물로 시스템/데이터/운영 감각을 검증하는 방향으로 업데이트.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 45</span> 상충·주의 포인트</summary>
+<div class="slide-body">지금 단계에서 과투자하거나 잘못 가정하면 데이터 품질이 흔들릴 수 있음<br/><br/>마이크로그린 스마트팜 프로젝트 · 13<br/><br/>pH/EC/NPK 센서<br/><br/>마이크로그린 초기에는 과할 수 있음. 상추·엽채류 수경재배 확장 때 중요.<br/><br/>햇빛 데이터<br/><br/>제어가 안 되어 AI 학습용 정밀 비교에는 노이즈 큼. LED 도입 후 본격화.<br/><br/>3D프린트 트레이<br/><br/>프로토타입엔 좋지만 식품·세척·누수·내구성 검증 필요.<br/><br/>곰팡이/위생<br/><br/>흙이 없어도 밀식·고습이면 곰팡이 리스크 큼. 환기·소독 표준화 필요.<br/><br/>무게 최대화<br/><br/>무거운 것보다 판매 가능 중량/품질/균일도가 더 중요.<br/><br/>AI 기대치<br/><br/>초기엔 AI가 키워주는 게 아니라, 데이터 정리와 조건 비교가 먼저.<br/><br/>마이크로그린은 “최종 종착지”가 아니라, 시스템 사업을 검증하기 위한 낮은 리스크의 실험 플랫폼으로 보는 게 안전함.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 46</span> 상충·주의 포인트</summary>
+<div class="slide-body">하드웨어가 늘수록 데이터 품질이 좋아지는 게 아니라, 실패 원인도 같이 늘어남<br/><br/>스마트팜 하드웨어 카테고리 업데이트 · 13<br/><br/>Jetson Thor 과투자<br/><br/>성능은 압도적이지만 초기 재배장에는 전력·가격·운영 부담이 큼. 로봇 자동화 전까지 보류.<br/><br/>센서값 맹신<br/><br/>pH/EC/CO₂/PAR는 보정·위치·오염에 민감. 값이 틀리면 AI도 틀린다.<br/><br/>카메라 조명 불안정<br/><br/>햇빛/자동노출/그림자가 바뀌면 잎 색 데이터가 흔들림. LED 단계에서 본격화.<br/><br/>물+전기 안전<br/><br/>습식 환경은 누수·부식·합선·감전 리스크. 방수/퓨즈/차단/외함부터 설계.<br/><br/>자동 도징 조기 도입<br/><br/>pH/EC 센서 보정 전 자동 투입은 실패 원인 분리를 어렵게 함. 수동 기록 후 도입.<br/><br/>데이터 라벨 부족<br/><br/>수확무게/상품중량/불량사유 없이 사진만 쌓으면 AI 학습 가치가 낮음.<br/><br/>최종 하드웨어 방향<br/><br/>1차는 “싸고 단순하게 기록”, 2차는 “LED/센서로 조건 통제”, 3차는 “AI 추론/추천”.<br/>완성형 스마트팜을 바로 만들기보다, 반복 실험 루프를 안정화하는 것이 우선.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 47</span> 출처/가격 해석 메모</summary>
+<div class="slide-body">가격은 변동성이 큰 참고값이며, 판매가보다 운영비·폐기율·판로가 중요<br/><br/>스마트팜 작물 카테고리 업데이트 · 13<br/><br/>재배/수경 참고<br/><br/>농사로: 상추 적온 15~20℃, pH 5.8~6.6, 고온 시 쓴맛/병해 주의<br/>농사로 현장자료: 수경 상추 pH/EC, 광 조건, EC 1~2 dS/m 관련 자료<br/>UMN/UMD Extension: 소규모 수경 작물군, 마이크로그린/베이비그린/성숙 엽채 재배 기간<br/><br/>가격 참고<br/><br/>가락가격/팜모닝/시세판: 상추·청경채·깻잎·케일 경매/도매/소매 시세<br/>컬리·쿠팡·롯데마트·식봄·오아시스 등 온라인 노출 가격: 루꼴라·바질·마이크로그린류<br/>온라인 가격은 배송비/소포장/품질 프리미엄이 섞여 있어 생산자 실수취가와 다를 수 있음<br/><br/>슬라이드 가격 범위 사용법<br/><br/>주의<br/><br/>100g 단가<br/><br/>고객이 보는 체감 가격 비교용<br/><br/>경매/도매가<br/><br/>생산자 판매가 하단 감각용<br/><br/>온라인 소포장가<br/><br/>프리미엄 가능성 확인용<br/><br/>사업성 판단<br/><br/>단가 × 반복구매 × 폐기율 × 포장/배송비로 봐야 함<br/><br/>다음 업데이트부터 작물은 이 카테고리 체계에 계속 누적: 후보 작물 추가 → 데이터 항목 → 재배 특이점 → 가격/판로 → AI 라벨링 관점</div>
+</details><details class="slide-detail">
+<summary><span>Slide 48</span> 출처/가격 해석 메모</summary>
+<div class="slide-body">스펙은 공식/제조사 자료 중심, 가격은 대략 범위로만 사용<br/><br/>스마트팜 하드웨어 카테고리 업데이트 · 14<br/><br/>AI 모듈 스펙 참고<br/><br/>• NVIDIA Jetson Orin Nano Super: 67 TOPS, 8GB LPDDR5, 7~25W, 공식 $249<br/>• Jetson Orin NX/AGX/Thor: NVIDIA 공식 제품 페이지/데이터시트<br/>• Raspberry Pi AI HAT+: 13/26 TOPS, Hailo 기반, $70부터<br/>• Hailo-8 M.2: 26 TOPS edge AI accelerator<br/><br/>카메라/센서/기구 참고<br/><br/>• Raspberry Pi AI Camera: Sony IMX500 기반 AI 카메라<br/>• Luxonis OAK: AI depth camera/edge vision platform<br/>• pH/EC/PAR/CO₂/RS485 센서는 제조사/유통사 스펙 확인 필요<br/>• 이미지 자료는 하드웨어 예시용이며 특정 구매 추천은 아님<br/><br/>가격 범위 사용법<br/><br/>• 국내 가격은 환율·재고·유통마진으로 공식가와 차이 큼<br/>• “몇 만원/수십만원/수백만원” 수준의 CAPEX 감각으로만 사용<br/>• 실제 구매 전에는 국내 유통처/해외 직구/부가세/배송비를 다시 확인<br/><br/>다음 업데이트 방식<br/><br/>하드웨어 후보가 생기면 아래 항목으로 계속 누적:<br/>카테고리 → 역할 → 가격대 → 제어/통신 → 데이터 항목 → 안전 리스크 → 초기/확장 판단<br/><br/>다음부터 작물 DB와 하드웨어 DB를 같이 관리: 작물별 필요한 센서/조명/AI 보드 우선순위를 연결</div>
+</details></div></div><aside class="side-panel"><h3>카테고리 이동</h3><a class="" href="overview.html">🧭 프로젝트 개요</a><a class="" href="decision.html">🤔 AI 필요성/사업 판단</a><a class="" href="differentiation.html">🧩 차별화 포인트</a><a class="" href="methods.html">🧱 스마트팜 농법 카테고리</a><a class="" href="hydroponics.html">💧 수경재배 전략</a><a class="" href="crops.html">🌿 작물 카테고리 DB</a><a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a><a class="" href="data-ai.html">🧠 데이터/AI 전략</a><a class="" href="roadmap.html">🗺️ 실행 로드맵</a><a class="active" href="cautions.html">⚠️ 상충·주의 포인트</a><a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+<div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid"><a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a><a class="category-card" href="decision.html"><div class="icon">🤔</div><h3>AI 필요성/사업 판단</h3><p>이 일을 해야 하는지, AI가 언제 필요한지, 소형 테스트와 대규모 목표를 분리해 판단</p><span class="go">열기 →</span></a><a class="category-card" href="differentiation.html"><div class="icon">🧩</div><h3>사업적·기술적 차별화 포인트</h3><p>무순/마이크로그린 자동화에서 일부러 남길 설계 과제와 검증 가설 정리</p><span class="go">열기 →</span></a><a class="category-card" href="methods.html"><div class="icon">🧱</div><h3>스마트팜 농법 카테고리</h3><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p><span class="go">열기 →</span></a><a class="category-card" href="hydroponics.html"><div class="icon">💧</div><h3>수경재배 전략</h3><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p><span class="go">열기 →</span></a><a class="category-card" href="crops.html"><div class="icon">🌿</div><h3>작물 카테고리 DB</h3><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p><span class="go">열기 →</span></a><a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a><a class="category-card" href="data-ai.html"><div class="icon">🧠</div><h3>데이터/AI 전략</h3><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p><span class="go">열기 →</span></a><a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a><a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a></div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>카테고리별 HTML 분리 · 상세자료 보존</span></div></footer>
+</body>
+</html>

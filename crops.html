@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>작물 카테고리 DB · 스마트팜 시스템 개발 프로젝트</title>
+<link href="style.css" rel="stylesheet"/>
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link" href="differentiation.html">차별화 포인트</a><a class="nav-link" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link" href="hydroponics.html">수경재배 전략</a><a class="nav-link active" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+<div class="breadcrumbs"><a href="index.html">홈</a> / 작물 카테고리 DB</div>
+<div class="page-title"><div class="kicker">04 · Crop Database</div><h1>작물 카테고리 DB</h1><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p></div>
+<div class="layout"><div class="content-stack"><section id="crops">
+<div class="section-head"><div class="kicker">04 · Crop Database</div><h2>수경재배 가능 작물 카테고리</h2><p>마이크로그린은 최종 고정 아이템이 아니라 원오브 아이템. 작물 후보는 카테고리 DB로 계속 쌓는다.</p></div>
+<div class="section-body">
+<h3>“학습용 최고”의 의미 분리</h3>
+<table>
+<tr><th>표현</th><th>정확한 의미</th><th>대표 작물</th></tr>
+<tr><td>사람 재배 학습용</td><td>내가 직접 재배 감·실패 원인·작업 루틴을 익히는 용도</td><td>마이크로그린</td></tr>
+<tr><td>AI 비전 학습용</td><td>사진에서 잎 면적·색·병반·균일도·결주를 판단하는 용도</td><td>상추·청경채</td></tr>
+<tr><td>AI 제어 학습용</td><td>pH/EC/수온/광량 → 무게·상품률을 연결하는 용도</td><td>상추</td></tr>
+<tr><td>장비 검증용</td><td>트레이·급수·카메라·센서·DB 루프를 검증하는 용도</td><td>마이크로그린·상추</td></tr>
+<tr><td>사업 검증 학습용</td><td>단가·포장·폐기·반복구매·판로를 확인하는 용도</td><td>루꼴라·바질·깻잎</td></tr>
+</table>
+<h3>작물 카테고리 요약</h3>
+<table>
+<tr><th>카테고리</th><th>대표 작물</th><th>재배주기</th><th>가격/판로 감각(러프)</th><th>역할/학습 의미</th><th>특이점</th></tr>
+<tr><td>빠른 파일럿</td><td>마이크로그린·새싹·베이비리프</td><td>7~21일</td><td>소형 가게 납품가 미확정. 30~50g 소포장 기준 러프 검증</td><td>사람 재배 학습 + 장비/데이터 파이프라인 검증</td><td>곰팡이·환기·파종량</td></tr>
+<tr><td>기준 엽채류</td><td>상추·버터헤드·로메인</td><td>정식 후 25~35일 / 파종 후 40~55일</td><td>대중 작물이라 단가보다 품질·회전율·폐기율 중심</td><td>AI 제어학습 기준 작물</td><td>고온·팁번·추대</td></tr>
+<tr><td>확장 엽채류</td><td>청경채·미즈나·케일·겨자채</td><td>25~50일</td><td>수요처 확인 후 소량 테스트</td><td>AI 비전/중량 예측 확장</td><td>품종별 형태 차이</td></tr>
+<tr><td>향신/고부가</td><td>루꼴라·바질·고수·딜</td><td>20~60일</td><td>소형 식당/카페 판로가 있으면 프리미엄 가능</td><td>판매 차별화/품질 실험</td><td>수요처·향·추대</td></tr>
+<tr><td>한국형 채엽</td><td>깻잎·미나리류</td><td>30일+ 반복수확</td><td>가격보다 재배 난이도·위생·반복수확 검증 우선</td><td>장기 운영/품질관리 학습</td><td>초기 난이도 높음</td></tr>
+<tr><td>보류/난이도</td><td>시금치·딸기·토마토</td><td>35일~수개월</td><td>가격 변동 큼</td><td>나중 단계 실험</td><td>발아/병해/공간 부담</td></tr>
+</table>
+<h3>작물 후보 평가 매트릭스</h3>
+<table>
+<tr><th>순위</th><th>작물군</th><th>재배주기</th><th>수경</th><th>사람 학습</th><th>AI 비전</th><th>AI 제어</th><th>사업성</th><th>판단</th></tr>
+<tr><td>1</td><td>상추</td><td>40~55일</td><td>◎</td><td>○</td><td>◎</td><td>◎</td><td>○</td><td>기준 작물</td></tr>
+<tr><td>2</td><td>마이크로그린</td><td>7~21일</td><td>저면관수◎ / NFT·DWC△</td><td>◎</td><td>○</td><td>△</td><td>소량 판로 검증</td><td>파일럿 최고</td></tr>
+<tr><td>3</td><td>청경채</td><td>25~45일</td><td>◎</td><td>○</td><td>◎</td><td>○</td><td>△</td><td>확장 검증</td></tr>
+<tr><td>4</td><td>루꼴라</td><td>20~35일</td><td>◎</td><td>○</td><td>○</td><td>○</td><td>◎</td><td>판로 있으면 좋음</td></tr>
+<tr><td>5</td><td>바질</td><td>35~60일+</td><td>○</td><td>△</td><td>○</td><td>△</td><td>◎</td><td>LED 이후</td></tr>
+<tr><td>6</td><td>케일/겨자채</td><td>25~70일</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>차별화 후보</td></tr>
+<tr><td>7</td><td>깻잎</td><td>30일+</td><td>△</td><td>△</td><td>○</td><td>△</td><td>○</td><td>2단계 이후</td></tr>
+<tr><td>8</td><td>시금치</td><td>35~55일</td><td>△</td><td>△</td><td>△</td><td>△</td><td>○</td><td>초기 보류</td></tr>
+</table>
+<div class="accordion">
+<details open=""><summary>마이크로그린/새싹/베이비리프</summary><div class="detail-body"><p>재배주기 7~21일. 빠른 반복 실험에는 최고지만, pH/EC 기반 제어 AI에는 한계가 있다. 핵심 리스크는 곰팡이·환기·밀식·파종량. 사람 재배 학습과 데이터 파이프라인 검증에 적합하다.</p></div></details>
+<details><summary>상추 계열</summary><div class="detail-body"><p>AI 제어 학습의 기준 작물. pH/EC/광량/수온/무게 데이터를 연결하기 쉽고, 카메라 기반 잎면적·색상·균일도 분석에 적합하다. 고온, 팁번, 추대, 상품률을 관리해야 한다.</p></div></details>
+<details><summary>청경채·미즈나·케일·겨자채</summary><div class="detail-body"><p>상추 이후 확장 엽채류. 형태/부피 변화가 크기 때문에 비전 기반 생체중 예측과 작물별 모델 분리 검증에 좋다. 다만 시장 수요와 품종별 상품성 차이를 확인해야 한다.</p></div></details>
+<details><summary>루꼴라·바질·고수·딜</summary><div class="detail-body"><p>향신/고부가 작물. 단가와 차별화는 좋지만 판로, 향 품질, 추대, 병해 관리가 중요하다. LED/환기 제어 이후 소량 판매 테스트 후보.</p></div></details>
+<details><summary>깻잎·미나리·시금치·딸기·토마토</summary><div class="detail-body"><p>한국형/고수익 후보지만 초기 1평 부업형 파일럿에는 부담이 크다. 장기 재배, 병해, 배지/점적관수, 공간, 수정, 식품안전 관리가 필요하므로 나중 단계로 보류한다.</p></div></details>
+</div>
+</div>
+</section><section id="microgreen-hydroponic-scope">
+  <div class="section-head"><div class="kicker">Crop Suitability Update</div><h2>마이크로그린 수경 적합성은 관점별로 분리</h2><p>마이크로그린을 단순히 “수경 적합성 ◎”로 표기하면 상추 같은 NFT/DWC 작물과 혼동될 수 있다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>평가 기준</th><th>마이크로그린</th><th>상추/엽채류</th><th>판단</th></tr></thead><tbody>
+      <tr><td>NFT/DWC 같은 정통 수경</td><td>△</td><td>◎</td><td>마이크로그린은 짧은 주기라 양액 제어 학습에는 한계</td></tr>
+      <tr><td>저면관수·매트·트레이 재배</td><td>◎</td><td>○</td><td>트레이 자동화와 반복 실험에는 매우 유리</td></tr>
+      <tr><td>pH/EC 최적화 AI</td><td>△</td><td>◎</td><td>상추가 기준 작물로 더 적합</td></tr>
+      <tr><td>환기·곰팡이·수분 타이밍</td><td>◎</td><td>○</td><td>초기 실패 원인 분리와 제어 루틴 학습에 좋음</td></tr>
+      <tr><td>짧은 반복 실험</td><td>◎</td><td>△</td><td>7~14일 단위로 장비/데이터 루프를 빠르게 검증</td></tr>
+    </tbody></table></div>
+    <p class="note" style="margin-top:16px">따라서 마이크로그린은 “정통 DWC/NFT 수경재배 기준 작물”이라기보다 “트레이 기반 저면관수·무토양 매트재배·단기 반복 생산”에 강한 파일럿 작물로 관리한다. 저면관수는 흙재배에도 쓰이는 방식이므로, 무순 파일럿에서는 상토/코코피트 기준군과 무토양 매트 자동화 후보군을 분리 비교한다.</p>
+  </div>
+</section>
+<section id="crop-price-scenario">
+  <div class="section-head"><div class="kicker">Price Scenario</div><h2>작물 가격은 실제 거래 전까지 러프하게만 관리</h2><p>온라인 소비자가, 소포장 노출가, 식당 납품가, 도매가는 서로 다르므로 단일 가격으로 사업성을 판단하지 않는다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>초기 기준</h3><p>대량 도매나 마트 납품이 아니라, 동네 카페·소형 식당·작은 가게에 소량 납품 가능한지 확인한다. 월매출보다 재구매율과 폐기율이 더 중요하다.</p></div>
+      <div class="card"><h3>표기 원칙</h3><p>HTML의 가격표는 “시장 정답”이 아니라 가정값이다. 실제 샘플 영업 후 거래처별 단가, 포장 단위, 납품 주기, 반품/폐기 조건을 별도 DB로 업데이트한다.</p></div>
+    </div>
+  </div>
+</section>
+<section id="radish-microgreen-focus">
+  <div class="section-head"><div class="kicker">Radish Focus</div><h2>무순 파일럿의 역할 재정의</h2><p>무순은 재배가 쉬워 보이는 만큼, 차별화는 재배 가능성이 아니라 자동화·청결성·반복성에서 찾아야 한다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>재배 안정성 기준군</h3><p>상토/코코피트 + 저면관수. 무순이 정상적으로 자라는 기준 높이, 중량, 맛, 색, 수확일을 잡기 위한 비교군.</p></div>
+      <div class="card"><h3>자동화 목표 후보</h3><p>무토양 매트 + 저면관수. 수분 버퍼가 작고 제어가 민감하지만, 트레이 표준화·청결성·센서 기반 자동화에는 더 유리할 가능성이 높다.</p></div>
+    </div>
+    <div class="callout" style="margin-top:16px">영상 레퍼런스에서 나온 4일 수확 가능성은 별도 검증한다. 4일째 “먹을 수 있음”과 “소형 가게에 납품 가능한 품질”은 다른 기준이므로, 수확 중량·길이·균일도·포장성을 함께 본다.</div>
+  </div>
+</section>
+<div class="archive-block" id="detail"><div class="archive-head"><h2>이 카테고리의 상세 슬라이드</h2><p>기존 PPT에서 해당 주제와 연결되는 슬라이드만 모았다. 필요한 부분만 펼쳐서 보면 된다.</p></div><details class="slide-detail">
+<summary><span>Slide 11</span> 스마트팜</summary>
+<div class="slide-body">마이크로그린은 원오브 아이템 · 작물 후보를 카테고리화해서 계속 누적 관리<br/><br/>가격대 / 수경 적합성 / AI·사람 학습 의미 분리<br/><br/>업데이트 포인트<br/>• 작물 카테고리 체계 추가<br/>• “학습용” 의미 명확화<br/>• 대략 가격대/판로 감각 반영<br/>• 기존 판단과 충돌하는 지점 정리<br/><br/>2026.06 기준 대략 범위 · 실제 판매가는 계절/등급/포장/배송에 따라 크게 변동</div>
+</details><details class="slide-detail">
+<summary><span>Slide 12</span> 작물 카테고리는 “계속 모아서 관리”</summary>
+<div class="slide-body">각 작물은 최종 아이템이 아니라, 시스템 검증 목적에 따라 분류<br/><br/>스마트팜 작물 카테고리 업데이트 · 2<br/><br/>A. 빠른 파일럿<br/><br/>마이크로그린·새싹·베이비리프<br/>재배주기: 7~21일<br/>가격대: 100g 2,500~5,000원<br/>학습 의미: 사람 학습 최고 / AI 파이프라인 테스트<br/>특이점: 곰팡이·환기·파종량<br/><br/>B. 기준 엽채류<br/><br/>상추·버터헤드·로메인<br/>재배주기: 정식 후 25~35일<br/>가격대: 소매 100g 900~1,500원<br/>학습 의미: AI 제어학습 기준 작물<br/>특이점: 고온·팁번·추대<br/><br/>C. 확장 엽채류<br/><br/>청경채·미즈나·케일·겨자채<br/>재배주기: 25~50일<br/>가격대: 100g 700~3,000원<br/>학습 의미: AI 비전/중량 예측 확장<br/>특이점: 품종별 형태 차이<br/><br/>D. 향신/고부가<br/><br/>루꼴라·바질·고수·딜<br/>재배주기: 20~60일<br/>가격대: 100g 1,500~5,000원+<br/>학습 의미: 판매 차별화/품질 실험<br/>특이점: 수요처·향·추대<br/><br/>E. 한국형 채엽<br/><br/>깻잎·미나리류<br/>재배주기: 30일+ 반복수확<br/>가격대: 깻잎 100g 1,500~3,500원<br/>학습 의미: 장기 운영/품질관리 학습<br/>특이점: 초기 난이도↑<br/><br/>F. 보류/난이도<br/><br/>시금치·딸기·토마토<br/>재배주기: 35일~수개월<br/>가격대: 가격 변동 큼<br/>학습 의미: 나중 단계 실험<br/>특이점: 발아/병해/공간 부담<br/><br/>카테고리는 고정값이 아니라 운영하면서 계속 업데이트: “시스템 검증 목적”이 바뀌면 작물 우선순위도 바뀜</div>
+</details><details class="slide-detail">
+<summary><span>Slide 13</span> “학습용 최고”의 의미를 분리</summary>
+<div class="slide-body">앞으로는 사람 학습 / AI 비전 학습 / AI 제어 학습을 따로 표기<br/><br/>스마트팜 작물 카테고리 업데이트 · 3<br/><br/>사람 재배 학습용<br/><br/>내가 직접 재배 감을 익히는 용도<br/><br/>핵심: 실패 원인 빨리 파악, 손으로 루틴 습득<br/><br/>대표: 마이크로그린<br/><br/>AI 비전 학습용<br/><br/>사진에서 작물 상태를 판단하는 용도<br/><br/>핵심: 잎 면적·색·병반·균일도 라벨링<br/><br/>대표: 상추·청경채<br/><br/>AI 제어 학습용<br/><br/>환경값과 수확량을 연결하는 용도<br/><br/>핵심: pH/EC/수온/광량 → 무게·상품률 예측<br/><br/>대표: 상추<br/><br/>사업 검증 학습용<br/><br/>실제 팔리는지 보는 용도<br/><br/>핵심: 단가·포장·폐기·반복구매 확인<br/><br/>대표: 루꼴라·바질·깻잎<br/><br/>즉, 마이크로그린이 “학습용 최고”라는 말은 주로 사람 재배 학습 + 데이터 파이프라인 검증 기준이다.<br/>AI 제어 모델의 기준 작물은 상추가 더 적합하다.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 14</span> A. 빠른 파일럿 작물: 마이크로그린/새싹/베이비리프</summary>
+<div class="slide-body">빠른 반복 실험에는 최고지만, pH/EC 기반 제어 AI에는 한계가 있음<br/><br/>스마트팜 작물 카테고리 업데이트 · 4<br/><br/>대표 후보<br/>• 무/브로콜리/완두/해바라기 마이크로그린<br/>• 새싹채소, 베이비리프<br/><br/>재배주기<br/>7~21일<br/>품종별로 1~3주<br/><br/>항목<br/><br/>판단<br/><br/>수경 적합성<br/><br/>매우 좋음<br/><br/>사람 학습<br/><br/>AI 비전<br/><br/>가능<br/><br/>AI 제어<br/><br/>제한적<br/><br/>가격대<br/><br/>100g 2,500~5,000원 전후<br/><br/>핵심 리스크<br/><br/>곰팡이·환기·밀식<br/><br/>정리: “재배 시스템 개발”의 첫 테스트베드로 좋다. 다만 영양액 최적화보다 위생/환기/수분 관리가 더 중요해서, 최종 AI 제어 모델의 대표 작물로는 부족할 수 있다.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 15</span> B. 기준 엽채류: 상추 계열</summary>
+<div class="slide-body">AI 제어 학습의 기준 작물: pH/EC/광량/무게 데이터를 연결하기 좋음<br/><br/>스마트팜 작물 카테고리 업데이트 · 5<br/><br/>재배주기<br/>정식 후 25~35일<br/>파종 후 40~55일<br/><br/>수경 적합성<br/>매우 좋음<br/><br/>가격대<br/>소매 100g 약 900~1,500원<br/>경매는 4kg 박스 단위 변동<br/><br/>데이터 가치<br/>사진+환경+수확무게 연결이 쉬움<br/><br/>관리 포인트<br/><br/>왜 중요한가<br/><br/>기록해야 할 데이터<br/><br/>고온/추대<br/><br/>쓴맛·품질 저하<br/><br/>기온, 수온, 광량<br/><br/>팁번<br/><br/>상품성 하락<br/><br/>습도, Ca, 생장속도<br/><br/>pH/EC<br/><br/>양분 흡수 핵심<br/><br/>급액/배액 pH·EC<br/><br/>무게/상품률<br/><br/>최종 성과 라벨<br/><br/>수확 총중량·상품중량<br/><br/>추천 역할: 마이크로그린으로 장치/운영 루틴을 익힌 뒤, 상추를 “기준 작물”로 잡아 AI 제어 모델의 뼈대를 만든다.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 16</span> C. 확장 엽채류: 청경채·미즈나·케일·겨자채</summary>
+<div class="slide-body">상추 이후, 형태/중량 변화가 큰 작물로 비전·수확량 예측을 확장<br/><br/>스마트팜 작물 카테고리 업데이트 · 6<br/><br/>작물<br/><br/>재배주기<br/><br/>수경 적합성<br/><br/>가격대<br/><br/>기르는데 특이점<br/><br/>청경채<br/><br/>25~45일<br/><br/>좋음<br/><br/>100g 700~1,500원 수준<br/><br/>줄기 물러짐, 밀식, 상품 모양<br/><br/>미즈나/코마츠나<br/><br/>국내 일반 유통 적음<br/><br/>빠른 생장, 잎 형태 데이터 좋음<br/><br/>케일/겨자채<br/><br/>25~70일<br/><br/>100g 1,000~3,000원 수준<br/><br/>잎이 질겨짐, 맛/품종 차이<br/><br/>베이비리프 믹스<br/><br/>21~40일<br/><br/>소포장 프리미엄 가능<br/><br/>혼합 품종이라 라벨링 복잡<br/><br/>AI 관점 장점<br/><br/>잎 면적뿐 아니라 줄기/부피 변화가 커서 생체중 예측 실험에 유리<br/>상추와 다른 형태라 “작물별 모델 분리” 검증 가능<br/>품종별 이미지 차이가 커서 카메라 데이터셋 확장에 좋음<br/><br/>주의점<br/><br/>시장 수요가 상추보다 좁을 수 있음<br/>소량 판매처가 없으면 가격 프리미엄을 실현하기 어려움<br/>밀식과 과습에서 상품 모양이 쉽게 무너질 수 있음<br/><br/>추천: 상추 모델이 어느 정도 잡힌 뒤 청경채 1종을 추가해 “작물 확장성”을 검증</div>
+</details><details class="slide-detail">
+<summary><span>Slide 17</span> D. 향신/고부가 작물: 루꼴라·바질·고수·딜</summary>
+<div class="slide-body">단가는 좋지만, 수요처·향·품질 관리가 핵심이라 초기엔 소량 검증<br/><br/>스마트팜 작물 카테고리 업데이트 · 7<br/><br/>작물<br/><br/>재배주기<br/><br/>가격대<br/><br/>수경 가능성<br/><br/>특이점<br/><br/>루꼴라<br/><br/>20~35일<br/><br/>100g 1,500~5,000원<br/><br/>매우 좋음<br/><br/>고온 시 매운맛/추대, 레스토랑 수요<br/><br/>바질<br/><br/>35~60일+ 반복<br/><br/>10g 1,000~2,400원 / 50g 5천원대<br/><br/>좋음<br/><br/>강광/온도 선호, 습하면 병<br/><br/>고수<br/><br/>30~60일<br/><br/>소포장 고단가 가능<br/><br/>보통<br/><br/>발아 느림, 호불호 강함<br/><br/>딜/파슬리<br/><br/>40~70일<br/><br/>소량 고단가 가능<br/><br/>수요처 좁고 발아/초기생장 느림<br/><br/>사업 관점<br/><br/>일반 상추보다 차별화 쉬움<br/>카페/레스토랑/샐러드 판매처가 있으면 유리<br/>소포장·당일수확·향 보존이 가격을 좌우<br/><br/>AI 관점<br/><br/>사진으로 무게/병해는 볼 수 있지만 “향”은 카메라로 직접 판단 어려움<br/>품질 라벨을 별도로 만들어야 함: 향, 신선도, 상품성<br/>LED/환기 제어가 생긴 뒤 진입 추천</div>
+</details><details class="slide-detail">
+<summary><span>Slide 18</span> E/F. 나중 단계 작물: 깻잎·미나리·시금치·과채류</summary>
+<div class="slide-body">가능은 하지만 초기 1평/부업형 파일럿에는 부담이 큰 후보<br/><br/>스마트팜 작물 카테고리 업데이트 · 8<br/><br/>분류<br/><br/>작물<br/><br/>왜 매력적인가<br/><br/>왜 초기 비추천인가<br/><br/>진입 시점<br/><br/>한국형 채엽<br/><br/>깻잎<br/><br/>국내 수요 친숙, 반복 수확<br/><br/>장기 재배·병해·고형배지/점적이 적합<br/><br/>상추 이후 2단계<br/><br/>물재배 이미지<br/><br/>미나리/워터크레스<br/><br/>수경 이미지와 잘 맞음<br/><br/>물 위생/냄새/식품안전 관리 부담<br/><br/>별도 라인 구축 후<br/><br/>난이도 보류<br/><br/>시금치<br/><br/>수요 큼, 가격 변동 큼<br/><br/>발아·고온·뿌리병·추대 이슈<br/><br/>기본 시스템 안정 후<br/><br/>고수익 후보<br/><br/>딸기/토마토<br/><br/>판매가/인지도 높음<br/><br/>공간·수분·수정·병해·생육기간 부담<br/><br/>사업 2~3단계<br/><br/>핵심 판단<br/><br/>초기 목표는 “돈 되는 작물 찾기”보다 시스템 학습/데이터 축적<br/>장기 채엽·과채류는 운영 변수가 많아 실패 원인 분리가 어려움<br/>후보로는 남기되, 초기 카테고리에서는 보류<br/><br/>가격 해석 주의<br/><br/>소포장 소매가는 높지만 생산자가 그 가격을 그대로 가져가는 것은 아님<br/>배송·포장·폐기·영업비가 실제 마진을 크게 좌우<br/>작물 가격보다 반복 구매처 확보가 더 중요</div>
+</details><details class="slide-detail">
+<summary><span>Slide 19</span> 대략 가격대 정리</summary>
+<div class="slide-body">가격은 “시장성 감각”용이며, 실제 사업성은 판로/포장/폐기율까지 봐야 함<br/><br/>스마트팜 작물 카테고리 업데이트 · 9<br/><br/>카테고리<br/><br/>대표 작물<br/><br/>대략 가격대<br/><br/>해석<br/><br/>빠른 파일럿<br/><br/>마이크로그린/새싹<br/><br/>100g 2,500~5,000원 전후<br/><br/>소포장 프리미엄 가능, 신선도 중요<br/><br/>기준 엽채<br/><br/>상추<br/><br/>소매 100g 900~1,500원 / 경매 4kg 0.8~1.6만원대 변동<br/><br/>가격은 낮지만 표준 데이터 작물<br/><br/>확장 엽채<br/><br/>청경채<br/><br/>100g 700~1,500원 수준<br/><br/>무게/형태 데이터 좋음, 단가는 낮음<br/><br/>케일/겨자채<br/><br/>100g 1,000~3,000원 수준<br/><br/>건강 이미지, 품종 차별화 가능<br/><br/>향신/고부가<br/><br/>루꼴라<br/><br/>100g 1,500~5,000원<br/><br/>소포장/와일드 품종은 높음<br/><br/>바질<br/><br/>10g 1,000~2,400원 / 50g 5천원대<br/><br/>소량 고단가, 향 품질 중요<br/><br/>한국형 채엽<br/><br/>깻잎<br/><br/>100g 1,500~3,500원 / 프리미엄 5천원대<br/><br/>시장 친숙, 장기 재배 난이도<br/><br/>가격 정의: 온라인/소매 노출가와 일부 도매/경매 시세를 섞은 “범위 감각”이다.<br/>실제 판매전략은 100g 단가보다 포장단위, 배송비, 폐기율, 고정 구매처 확보가 더 중요하다.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 20</span> 작물 후보 평가 매트릭스</summary>
+<div class="slide-body">초기 기준: 실패 비용 낮음 + 데이터 쌓기 쉬움 + 나중에 확장 가능<br/><br/>스마트팜 작물 카테고리 업데이트 · 10<br/><br/>순위<br/><br/>작물군<br/><br/>재배주기<br/><br/>수경<br/><br/>사람 학습<br/><br/>AI 비전<br/><br/>AI 제어<br/><br/>사업성<br/><br/>판단<br/><br/>1<br/><br/>상추<br/><br/>40~55일<br/><br/>◎<br/><br/>○<br/><br/>기준 작물<br/><br/>2<br/><br/>마이크로그린<br/><br/>7~21일<br/><br/>△<br/><br/>파일럿 최고<br/><br/>3<br/><br/>청경채<br/><br/>25~45일<br/><br/>확장 검증<br/><br/>4<br/><br/>루꼴라<br/><br/>20~35일<br/><br/>판로 있으면 좋음<br/><br/>5<br/><br/>바질<br/><br/>35~60일+<br/><br/>LED 이후<br/><br/>6<br/><br/>케일/겨자채<br/><br/>25~70일<br/><br/>차별화 후보<br/><br/>7<br/><br/>깻잎<br/><br/>30일+<br/><br/>2단계 이후<br/><br/>8<br/><br/>시금치<br/><br/>35~55일<br/><br/>초기 보류<br/><br/>기호: ◎ 매우 적합 / ○ 가능 / △ 조건부. “사업성”은 판매가만이 아니라 판로 확보 가능성까지 포함한 주관 평가.</div>
+</details><details class="slide-detail">
+<summary><span>Slide 21</span> 추천 로드맵: 작물별 역할을 분리해서 진행</summary>
+<div class="slide-body">당장 마이크로그린만 할 필요 없음. “카테고리별 대표 작물”로 단계 확장<br/><br/>스마트팜 작물 카테고리 업데이트 · 12<br/><br/>1<br/><br/>현재~가을<br/><br/>마이크로그린 + 상추 소규모<br/><br/>트레이·자동급수·사진 기록·수확 무게 기록<br/><br/>사람 학습/장치 검증<br/><br/>2<br/><br/>겨울 LED 도입<br/><br/>상추 기준 데이터화<br/><br/>pH/EC/수온/광량 고정, 수확무게·상품률 라벨링<br/><br/>AI 제어 모델 기초<br/><br/>3<br/><br/>2단계 확장<br/><br/>청경채 또는 루꼴라 추가<br/><br/>작물별 모델 분리, 카메라 비전/수확량 예측 비교<br/><br/>확장성 검증<br/><br/>4<br/><br/>판매 테스트<br/><br/>루꼴라/바질/깻잎 중 판로 있는 것<br/><br/>포장, 배송, 폐기율, 반복 구매율 측정<br/><br/>사업성 검증<br/><br/>다음 액션: 기존 PPT의 “마이크로그린 프로젝트”는 유지하되, 별도 섹션으로 “작물 카테고리 DB”를 계속 붙여 나가는 방식 추천</div>
+</details><details class="slide-detail">
+<summary><span>Slide 22</span> 기존 생각과 상충·조정되는 포인트</summary>
+<div class="slide-body">마이크로그린은 좋은 시작점이지만, 모든 스마트팜 AI의 최종 답은 아님<br/><br/>스마트팜 작물 카테고리 업데이트 · 11<br/><br/>기존 표현/가정<br/><br/>조정된 해석<br/><br/>결론<br/><br/>“마이크로그린 학습용 최고”<br/><br/>사람 재배 학습 + 자동화 파이프라인 학습에는 최고<br/><br/>AI 제어 모델 기준은 상추가 더 적합<br/><br/>“수경이면 pH/EC가 핵심”<br/><br/>상추 이상 엽채류에는 핵심, 마이크로그린은 상대적으로 낮음<br/><br/>작물별 센서 우선순위 분리<br/><br/>“수확량=무게”<br/><br/>맞지만 상품중량/상품률까지 봐야 함<br/><br/>총중량 + 상품중량 둘 다 기록<br/><br/>“햇빛으로 시작”<br/><br/>사람 학습에는 좋지만 AI 데이터는 노이즈 큼<br/><br/>겨울 LED 전환 후 제어 데이터 강화<br/><br/>“작물 모델은 합칠 수 있음”<br/><br/>가능하나 무작정 통합하면 희석/왜곡 가능<br/><br/>작물별 모델 + 라우터 방식 추천<br/><br/>업데이트된 원칙<br/><br/>작물 카테고리를 계속 누적 관리한다<br/>“학습”의 의미를 반드시 분리해서 표기한다<br/>마이크로그린은 파일럿, 상추는 기준, 향신채는 판로 검증<br/>가격대는 단가보다 폐기율/포장/반복구매와 함께 본다</div>
+</details></div></div><aside class="side-panel"><h3>카테고리 이동</h3><a class="" href="overview.html">🧭 프로젝트 개요</a><a class="" href="decision.html">🤔 AI 필요성/사업 판단</a><a class="" href="differentiation.html">🧩 차별화 포인트</a><a class="" href="methods.html">🧱 스마트팜 농법 카테고리</a><a class="" href="hydroponics.html">💧 수경재배 전략</a><a class="active" href="crops.html">🌿 작물 카테고리 DB</a><a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a><a class="" href="data-ai.html">🧠 데이터/AI 전략</a><a class="" href="roadmap.html">🗺️ 실행 로드맵</a><a class="" href="cautions.html">⚠️ 상충·주의 포인트</a><a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+<div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid"><a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a><a class="category-card" href="decision.html"><div class="icon">🤔</div><h3>AI 필요성/사업 판단</h3><p>이 일을 해야 하는지, AI가 언제 필요한지, 소형 테스트와 대규모 목표를 분리해 판단</p><span class="go">열기 →</span></a><a class="category-card" href="differentiation.html"><div class="icon">🧩</div><h3>사업적·기술적 차별화 포인트</h3><p>무순/마이크로그린 자동화에서 일부러 남길 설계 과제와 검증 가설 정리</p><span class="go">열기 →</span></a><a class="category-card" href="methods.html"><div class="icon">🧱</div><h3>스마트팜 농법 카테고리</h3><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p><span class="go">열기 →</span></a><a class="category-card" href="hydroponics.html"><div class="icon">💧</div><h3>수경재배 전략</h3><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p><span class="go">열기 →</span></a><a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a><a class="category-card" href="data-ai.html"><div class="icon">🧠</div><h3>데이터/AI 전략</h3><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p><span class="go">열기 →</span></a><a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a><a class="category-card" href="cautions.html"><div class="icon">⚠️</div><h3>상충·주의 포인트</h3><p>마이크로그린 위치, 센서 과투자, 햇빛 데이터, Jetson 과투자 등 리스크</p><span class="go">열기 →</span></a><a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a></div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>카테고리별 HTML 분리 · 상세자료 보존</span></div></footer>
+</body>
+</html>

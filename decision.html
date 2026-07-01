@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 필요성/사업 판단 · 스마트팜 시스템 개발 프로젝트</title>
+<link rel="stylesheet" href="style.css" />
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link active" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link" href="hydroponics.html">수경재배 전략</a><a class="nav-link" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+  <div class="breadcrumbs"><a href="index.html">홈</a> / AI 필요성/사업 판단</div>
+  <div class="page-title"><div class="kicker">00 · Strategic Decision</div><h1>AI 필요성/사업 판단</h1><p>이 프로젝트를 해야 하는지, AI가 진짜 필요한지, 1평 테스트와 대규모 목표를 어떻게 분리해서 봐야 하는지 정리한 판단 페이지.</p></div>
+  <div class="layout"><div class="content-stack">
+<section id="decision-summary">
+  <div class="section-head"><div class="kicker">Decision · Why This Project</div><h2>이 일을 해야 하는지에 대한 고찰</h2><p>핵심 질문은 “AI가 멋져 보이냐”가 아니라, 제어 대상이 예측 불가능한가, 데이터가 충분히 쌓이는가, 실제로 돈이나 시간을 아낄 수 있는가다.</p></div>
+  <div class="section-body">
+    <div class="callout">현재 결론: 1평 테스트에서는 AI가 핵심이 아닐 수 있다. 하지만 대규모 스마트팜을 목표로 보면 AI는 장기적인 차별화 포인트가 된다.</div>
+    <div class="table-wrap" style="margin-top:16px"><table><thead><tr><th>구분</th><th>판단</th><th>이유</th></tr></thead><tbody>
+      <tr><td>1평 테스트/MVP</td><td>AI 필요성 낮음</td><td>자동급수, 조명, 팬, 센서 기록은 룰 기반 제어로 충분</td></tr>
+      <tr><td>소형 파일럿</td><td>낮음~중간</td><td>사진 기록, 타임랩스, 잎면적 추출 정도는 OpenCV/약한 AI로 가능</td></tr>
+      <tr><td>수십~수백 평</td><td>중간</td><td>구역별 편차, 품질 균일도, 작업자 동선, 수확 예측이 중요해짐</td></tr>
+      <tr><td>수천 평 이상/공장형</td><td>높음</td><td>에너지비, 병해 조기감지, 수확량 예측, 레시피 최적화가 돈으로 연결</td></tr>
+      <tr><td>완전 자율 온실</td><td>매우 높음</td><td>사람 재배자의 경험 판단을 시스템화해야 함</td></tr>
+    </tbody></table></div>
+    <p class="note" style="margin-top:16px">정리하면, AI는 처음부터 펌프를 켜고 끄는 메인 제어기가 아니라, 대규모 운영에서 생육 상태를 읽고 예측하고 최적 조건을 추천하는 상위 판단 레이어로 들어가야 한다.</p>
+  </div>
+</section>
+
+<section id="current-scope-guardrail">
+  <div class="section-head"><div class="kicker">Scope Guardrail</div><h2>이번 논의 반영 기준</h2><p>가격, 하드웨어, 딥러닝, 수경 적합성은 아직 확정값이 아니라 판단 프레임으로 둔다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>가격/매출</h3><p>현재는 실제 단가를 모르는 상태이므로, 1평 월매출은 확정 예측이 아니라 소형 가게 납품 가능성을 보는 러프 시나리오로만 둔다.</p></div>
+      <div class="card"><h3>하드웨어</h3><p>Raspberry Pi는 확정 결정이 아니다. Jetson, Mini PC, 스마트폰/USB 카메라와 함께 후보로 두고 비교한다.</p></div>
+      <div class="card"><h3>AI/딥러닝</h3><p>오늘 정리본이 기존 AI 심화 자료를 대체하지 않는다. 초기/중기/장기 적용 범위를 분리해 관리한다.</p></div>
+      <div class="card"><h3>수경 적합성</h3><p>마이크로그린은 저면관수 파일럿에는 좋지만, 양액 최적화 AI 기준 작물로는 상추와 분리해서 논의한다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="differentiation-summary">
+  <div class="section-head"><div class="kicker">Differentiation Update</div><h2>사업적·기술적 차별화 포인트 요약</h2><p>무순/마이크로그린은 재배 자체가 쉬워 보일 수 있으므로, 차별화는 자동화 난제에 둔다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>기술 가설</h3><p>무토양 매트 + 저면관수 + 트레이 무게 기반 수분 제어 + 급수/배수/환기 시퀀스가 핵심 후보. 상토는 기준군, 무토양 매트는 자동화 목표 후보로 둔다.</p></div>
+      <div class="card"><h3>사업 가설</h3><p>대량 도매가 아니라 소형 가게에 신선한 무순/마이크로그린을 반복 납품하는 운영 리듬을 검증한다. 4일 수확 가능성은 회전율 관점에서 중요한 검증 포인트다.</p></div>
+    </div>
+    <div class="callout" style="margin-top:16px">이 차별화가 실제로 남들도 어려워하는 지점인지는 아직 미검증이다. 이후 시장·현장·제품·특허 조사를 통해 검증한다. <a href="differentiation.html">상세 차별화 페이지 보기 →</a></div>
+  </div>
+</section>
+
+<section id="not-ai-first">
+  <div class="section-head"><div class="kicker">Reality Check</div><h2>지금 단계에서는 AI가 핵심이 아닐 가능성이 큼</h2><p>대부분의 스마트팜 기본 동작은 센서 측정 → 기준값 비교 → 펌프/팬/조명/밸브 제어다. 이 영역은 AI보다 자동제어, IoT, PLC/MCU에 가깝다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>우선순위</th><th>필요한 것</th><th>AI 필요 여부</th></tr></thead><tbody>
+      <tr><td>1</td><td>온도/습도/수위/조도 측정</td><td>불필요</td></tr>
+      <tr><td>2</td><td>펌프/조명/팬 자동 제어</td><td>불필요</td></tr>
+      <tr><td>3</td><td>데이터 저장/그래프/알람</td><td>불필요</td></tr>
+      <tr><td>4</td><td>사진 기록/타임랩스</td><td>불필요</td></tr>
+      <tr><td>5</td><td>잎 면적/색상 자동 추출</td><td>약한 AI 또는 OpenCV 가능</td></tr>
+      <tr><td>6</td><td>병해/곰팡이 자동 감지</td><td>AI 있으면 좋음</td></tr>
+      <tr><td>7</td><td>수확일/수확량 예측</td><td>데이터 쌓인 뒤 AI 가능</td></tr>
+      <tr><td>8</td><td>광량·급수·양액 최적화 추천</td><td>장기적으로 AI 가능</td></tr>
+      <tr><td>9</td><td>완전 자율 재배</td><td>고급 AI/제어 영역</td></tr>
+    </tbody></table></div>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>룰 기반으로 충분한 예</h3><p>습도 &gt; 85% → 팬 ON<br>수위 낮음 → 펌프 OFF + 알람<br>조명 16시간 경과 → LED OFF<br>온도 &gt; 28℃ → 환기팬 ON<br>pH/EC 범위 이탈 → 알람</p></div>
+      <div class="card"><h3>자동차 제어와 비슷한 점</h3><p>전압 UVLO/OVP, 온도 derating, PWM dimming 같은 명확한 조건은 AI보다 명시적 제어 로직이 더 안전하고 싸고 예측 가능하다.</p></div>
+      <div class="card"><h3>초기 타이틀 조정</h3><p>초기에는 “AI 스마트팜”보다 “데이터 기록형 자동 스마트팜” 또는 “소형 재배장 자동화 + 생육 데이터 수집 시스템”이 현실적이다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ai-value">
+  <div class="section-head"><div class="kicker">Where AI Actually Matters</div><h2>AI가 의미 있는 구간</h2><p>AI는 직접 제어보다, 사람이 눈으로 판단하던 것을 대신하거나 많은 조건 중 최적점을 찾을 때 가치가 커진다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>영역</th><th>AI 가치</th><th>지금 필요성</th></tr></thead><tbody>
+      <tr><td>잎 면적 측정</td><td>매일 사진에서 생장 속도 자동 추출</td><td>낮음~중간</td></tr>
+      <tr><td>색 변화 감지</td><td>황화, 스트레스, 광 부족 추정</td><td>중간</td></tr>
+      <tr><td>곰팡이/병반 감지</td><td>사람이 놓치는 초기 이상 탐지</td><td>중간</td></tr>
+      <tr><td>수확 시점 예측</td><td>며칠 뒤 수확 가능한지 예측</td><td>데이터 쌓인 뒤</td></tr>
+      <tr><td>수확량 예측</td><td>사진+환경 → 중량 예측</td><td>데이터 쌓인 뒤</td></tr>
+      <tr><td>조건 추천</td><td>광량/급수/온도/양액 조합 추천</td><td>장기 과제</td></tr>
+      <tr><td>자율 재배</td><td>사람 설정 없이 전체 최적화</td><td>고급 연구/상용 대형팜 영역</td></tr>
+    </tbody></table></div>
+    <p class="callout" style="margin-top:16px">AI의 1차 가치는 “펌프 제어”가 아니라 작물 상태를 읽고, 구역별 편차를 찾고, 수확량·수확일·품질을 예측하는 것이다.</p>
+  </div>
+</section>
+
+<section id="scale-change">
+  <div class="section-head"><div class="kicker">Scale Changes Everything</div><h2>1평 테스트와 대규모 목표는 결론이 다름</h2><p>1평은 실험실이고, 목표가 대규모 스마트팜이면 AI는 장기적으로 차별화 포인트가 맞다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>구분</th><th>소형 테스트</th><th>대규모 목표</th></tr></thead><tbody>
+      <tr><td>센서</td><td>몇 개 센서</td><td>구역별 센서망</td></tr>
+      <tr><td>카메라</td><td>1~2대</td><td>랙/라인/이동형 카메라</td></tr>
+      <tr><td>제어</td><td>Arduino/ESP32</td><td>PLC/산업용 I/O/RS485/Ethernet</td></tr>
+      <tr><td>AI 연산</td><td>없어도 됨</td><td>Edge AI + 중앙 서버</td></tr>
+      <tr><td>데이터</td><td>CSV</td><td>DB + Batch ID + 이미지 저장소</td></tr>
+      <tr><td>제어 방식</td><td>타이머/룰</td><td>룰 + 예측 + 최적화</td></tr>
+      <tr><td>목표</td><td>재배 성공</td><td>균일 품질, 수확 예측, 비용 절감</td></tr>
+    </tbody></table></div>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>구역별 편차 감지</h3><p>A구역은 잘 자라는데 B구역 잎색이 연하거나, C구역 가장자리만 마르거나, D구역에 곰팡이 초기 징후가 있을 때 AI 비전이 가치가 생긴다.</p></div>
+      <div class="card"><h3>수확량/수확일 예측</h3><p>며칠 뒤 수확 가능한지, 몇 kg 나올지, 상품률이 얼마나 될지 예측하면 납품 일정·작업자 동선·출하 계획이 가능해진다.</p></div>
+      <div class="card"><h3>에너지 최적화</h3><p>LED, 냉난방, 제습, 공조 비용이 커지면 전기요금이 사업성을 좌우한다. 이때 예측/최적화 모델의 가치가 커진다.</p></div>
+      <div class="card"><h3>재배 레시피 최적화</h3><p>PPFD, DLI, 광질, 주야간 온도, VPD, CO₂, pH/EC, 급수, 재식밀도, 수확기준을 조건→품질→수익으로 연결해야 한다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="layers">
+  <div class="section-head"><div class="kicker">Architecture</div><h2>스마트팜 AI는 위쪽 판단 레이어</h2><p>AI가 아래쪽 제어를 대체하는 구조가 아니라, 자동제어 위에서 생육 판단·예측·최적화를 수행하는 구조가 맞다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>레이어</th><th>역할</th><th>기술</th><th>AI 필요</th></tr></thead><tbody>
+      <tr><td>L1. 안전/구동</td><td>펌프, 팬, 밸브, LED, 히터 직접 제어</td><td>MCU, PLC, 릴레이, MOSFET</td><td>없음</td></tr>
+      <tr><td>L2. 환경 제어</td><td>온도/습도/CO₂/광량/pH/EC 유지</td><td>PID, 룰 기반, 시퀀스 제어</td><td>거의 없음</td></tr>
+      <tr><td>L3. 모니터링</td><td>사진, 센서, 수확량, 이상 상태 기록</td><td>DB, 대시보드, 알람</td><td>약간</td></tr>
+      <tr><td>L4. 생육 해석</td><td>잎 면적, 색, 균일도, 병해, 수확시점 판단</td><td>Vision AI, segmentation, detection</td><td>필요</td></tr>
+      <tr><td>L5. 예측</td><td>수확량, 수확일, 품질, 불량률 예측</td><td>ML, 시계열 모델</td><td>필요</td></tr>
+      <tr><td>L6. 최적화</td><td>광량/양액/온습도/에너지비 최적화</td><td>MPC, 강화학습, 디지털트윈</td><td>고급 AI</td></tr>
+      <tr><td>L7. 자율 운영</td><td>사람이 설정하지 않아도 재배 전략 조정</td><td>AI + 제어 + 전문가 규칙</td><td>매우 필요</td></tr>
+    </tbody></table></div>
+    <p class="note" style="margin-top:16px">한 줄 정리: AI는 스마트팜의 엔진이 아니라, 나중에 붙는 분석/판단 레이어다. 처음 엔진은 센서·제어·기록 시스템이다.</p>
+  </div>
+</section>
+
+<section id="hardware-implication">
+  <div class="section-head"><div class="kicker">Hardware Implication</div><h2>그래서 Jetson도 당장 필수는 아님</h2><p>Jetson은 스마트팜 메인 제어기가 아니라 비전 AI 노드로 보는 게 맞다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>역할</th><th>초기 추천</th><th>대규모/확장 시</th></tr></thead><tbody>
+      <tr><td>센서 노드</td><td>ESP32, STM32, Arduino</td><td>RS485/Modbus 센서망</td></tr>
+      <tr><td>안전 제어</td><td>MCU 독립 제어</td><td>PLC, 산업용 I/O, Watchdog</td></tr>
+      <tr><td>데이터 저장</td><td>Raspberry Pi, 미니 PC, 노트북</td><td>DB 서버, NAS, 클라우드</td></tr>
+      <tr><td>카메라</td><td>스마트폰, USB 카메라, Pi Camera</td><td>랙/라인별 카메라, 이동형 검사 장비</td></tr>
+      <tr><td>AI 추론</td><td>없어도 됨 / 보드 미확정</td><td>Jetson Orin NX/AGX, Mini PC, Edge AI 노드 중 비교</td></tr>
+      <tr><td>장기 학습</td><td>PC/노트북 분석</td><td>PC GPU, 클라우드 GPU</td></tr>
+    </tbody></table></div>
+    <div class="callout" style="margin-top:16px">물·전기·모터 쪽은 MCU/PLC와 안전 회로가 담당하고, AI 연산 보드는 카메라가 붙은 구역 또는 이동형 검사 장비에서 이미지 분석을 맡는 구조가 제품화에 유리하다. 단, 특정 보드는 아직 확정하지 않는다.</div>
+  </div>
+</section>
+
+<section id="direction-update">
+  <div class="section-head"><div class="kicker">Direction Update</div><h2>프로젝트 표현 수정</h2><p>AI를 버리는 것이 아니라, 들어갈 위치와 시점을 명확히 해야 한다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>기존 표현</th><th>수정 방향</th></tr></thead><tbody>
+      <tr><td>AI 스마트팜</td><td>데이터 기반 자동 스마트팜</td></tr>
+      <tr><td>Jetson 기반 AI 제어</td><td>MCU 기반 자동제어 + 나중에 AI 분석</td></tr>
+      <tr><td>AI가 작물을 키움</td><td>자동화가 환경을 유지하고, AI는 상태를 해석</td></tr>
+      <tr><td>처음부터 생육 최적화</td><td>먼저 재배 반복성과 데이터 품질 확보</td></tr>
+      <tr><td>고성능 연산 모듈 중심</td><td>센서/제어/기록/위생/트레이 중심</td></tr>
+    </tbody></table></div>
+    <div class="flow">
+      <div class="step"><b>1단계</b>자동화 스마트팜<br><span class="muted">물/조명/팬 자동화 · AI 없음</span></div>
+      <div class="step"><b>2단계</b>데이터 스마트팜<br><span class="muted">사진+센서+수확량 기록 · AI 없음</span></div>
+      <div class="step"><b>3단계</b>분석 스마트팜<br><span class="muted">생장 속도·색·균일도 계산 · OpenCV/약한 AI</span></div>
+      <div class="step"><b>4단계</b>예측 스마트팜<br><span class="muted">수확일·수확량 예측 · AI 가능</span></div>
+      <div class="step"><b>5단계</b>최적화 스마트팜<br><span class="muted">조건 추천, 에너지/수확량 최적화 · AI 필요</span></div>
+      <div class="step"><b>6단계</b>자율 스마트팜<br><span class="muted">사람 개입 최소화 · 고급 AI</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="final-judgement">
+  <div class="section-head"><div class="kicker">Final Judgement</div><h2>최종 판단</h2><p>소형 테스트와 대규모 목표를 분리하면 방향이 명확해진다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>틀린 방향</h3><ul><li>AI가 온도·습도·물·조명을 직접 제어한다</li><li>Jetson 하나 붙이면 AI 스마트팜이다</li><li>처음부터 자율재배를 만든다</li><li>데이터 없이 최적화부터 한다</li></ul></div>
+      <div class="card"><h3>맞는 방향</h3><ul><li>기본 제어는 룰/PID/PLC가 한다</li><li>AI는 작물 상태를 읽고 예측한다</li><li>AI는 에너지·수확량·품질의 최적 조건을 추천한다</li><li>대규모에서는 AI가 사람 재배자의 판단을 시스템화한다</li></ul></div>
+    </div>
+    <div class="callout" style="margin-top:16px">소형 테스트에서는 AI가 필요 없다. 하지만 대규모 사업을 목표로 하면 AI는 필요하다. 단, AI는 하드웨어 제어기가 아니라 “생육 판단 + 예측 + 최적화 엔진”으로 들어가야 한다.</div>
+    <p class="note" style="margin-top:16px">따라서 현재 프로젝트는 “AI 모듈 중심”이 아니라 “스마트팜 하드웨어 + 데이터/AI 확장 아키텍처”로 정리하는 것이 맞다.</p>
+  </div>
+</section>
+</div><aside class="side-panel"><h3>카테고리 이동</h3><a class="" href="overview.html">🧭 프로젝트 개요</a><a class="active" href="decision.html">🤔 AI 필요성/사업 판단</a><a class="" href="differentiation.html">🧩 차별화 포인트</a><a class="" href="methods.html">🧱 스마트팜 농법 카테고리</a><a class="" href="hydroponics.html">💧 수경재배 전략</a><a class="" href="crops.html">🌿 작물 카테고리 DB</a><a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a><a class="" href="data-ai.html">🧠 데이터/AI 전략</a><a class="" href="roadmap.html">🗺️ 실행 로드맵</a><a class="" href="cautions.html">⚠️ 상충·주의 포인트</a><a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+  <div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid"><a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a><a class="category-card" href="methods.html"><div class="icon">🧱</div><h3>스마트팜 농법 카테고리</h3><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p><span class="go">열기 →</span></a><a class="category-card" href="hydroponics.html"><div class="icon">💧</div><h3>수경재배 전략</h3><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p><span class="go">열기 →</span></a><a class="category-card" href="crops.html"><div class="icon">🌿</div><h3>작물 카테고리 DB</h3><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p><span class="go">열기 →</span></a><a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a><a class="category-card" href="data-ai.html"><div class="icon">🧠</div><h3>데이터/AI 전략</h3><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p><span class="go">열기 →</span></a><a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a><a class="category-card" href="cautions.html"><div class="icon">⚠️</div><h3>상충·주의 포인트</h3><p>마이크로그린 위치, 센서 과투자, 햇빛 데이터, Jetson 과투자 등 리스크</p><span class="go">열기 →</span></a><a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a></div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>카테고리별 HTML 분리 · 상세자료 보존</span></div></footer>
+</body>
+</html>

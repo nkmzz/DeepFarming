@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>사업적·기술적 차별화 포인트 · 스마트팜 시스템 개발 프로젝트</title>
+<link href="style.css" rel="stylesheet"/>
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link active" href="differentiation.html">차별화 포인트</a><a class="nav-link" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link" href="hydroponics.html">수경재배 전략</a><a class="nav-link" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+<div class="breadcrumbs"><a href="index.html">홈</a> / 사업적·기술적 차별화 포인트</div>
+<div class="page-title"><div class="kicker">00-1 · Differentiation</div><h1>사업적·기술적 차별화 포인트</h1><p>무순/마이크로그린 재배가 쉬워 보이는 것과, 반복 생산 자동화를 설계하는 것은 분리해서 본다.</p></div>
+<div class="layout"><div class="content-stack">
+<section id="differentiation-position">
+  <div class="section-head"><div class="kicker">Position</div><h2>차별화의 출발점</h2><p>현재 단계에서는 “남들도 진짜 어려워하는가”까지 확정하지 않는다. 우선 내가 풀어볼 만한 설계 과제로 정의하고, 이후 현장·시장·특허·제품 조사를 통해 검증한다.</p></div>
+  <div class="section-body">
+    <div class="callout">핵심 가설: 무순/마이크로그린은 재배 자체는 쉬워 보일 수 있다. 차별화는 재배법이 아니라 <b>무토양 매트 + 저면관수 + 센서 기반 자동화로 매일 반복 생산 가능한 모듈</b>을 만드는 데 있다.</div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card"><span class="tag">쉬워 보이는 부분</span><h3>씨앗 발아와 단기 수확</h3><p>무순은 발아가 빠르고, 영상상 집에서도 간단히 키우는 사례가 보인다. 따라서 “키우는 법” 자체는 강한 차별화가 아닐 수 있다.</p></div>
+      <div class="card"><span class="tag">어려울 수 있는 부분</span><h3>반복 생산 자동화</h3><p>같은 품질로 매일 파종·매일 수확·매일 출하하려면 파종량, 수분, 배수, 환기, 위생, 수확 기준, 납품 리듬을 반복 가능하게 만들어야 한다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="video-observation">
+  <div class="section-head"><div class="kicker">Reference Observation</div><h2>쇼츠 링크에서 얻은 관찰 포인트</h2><p>영상은 정량 검증 자료가 아니라 방향성을 주는 현장 관찰 메모로 사용한다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>레퍼런스</th><th>관찰</th><th>프로젝트 해석</th></tr></thead><tbody>
+      <tr><td><a href="https://www.youtube.com/shorts/SsUVCAryPfY" target="_blank" rel="noopener">무순 키우기 쇼츠</a></td><td>다이소 무순 씨앗과 포트로 집에서 키우는 형태. 재배 자체가 생각보다 쉬워 보인다.</td><td>차별화 포인트를 “재배 가능”에 두면 약하다. 자동화, 균일성, 청결성, 납품 반복성으로 이동해야 한다.</td></tr>
+      <tr><td><a href="https://www.youtube.com/shorts/6sMNZ1HEnoM" target="_blank" rel="noopener">33년 무순 재배 농가 쇼츠</a></td><td>매일 파종·매일 수확·매일 출하하는 무순 생산 사례. 영상 발화 기준으로 4일 수확 이야기가 나온다.</td><td>무순은 회전율이 매우 빠른 작물일 수 있다. 다만 4일 수확은 상품 길이, 수확 중량, 포장 단위, 납품 품질 기준을 따로 검증해야 한다.</td></tr>
+    </tbody></table></div>
+    <p class="note" style="margin-top:14px">주의: 쇼츠는 현장 감각용 레퍼런스다. “4일 수확”은 가능성으로 기록하되, 우리 시스템에서는 키, 중량, 맛, 색, 줄기 강도, 수확물 청결성 기준으로 재검증한다.</p>
+  </div>
+</section>
+
+<section id="technical-differentiation">
+  <div class="section-head"><div class="kicker">Technical Differentiation</div><h2>기술적 차별화 후보</h2><p>재배가 쉬워 보여도 자동화 설계로 들어가면 전자·센서·제어·기구 설계자가 풀 과제가 생긴다.</p></div>
+  <div class="section-body">
+    <div class="grid two">
+      <div class="card"><h3>1. 무토양 매트 + 저면관수 자동화</h3><p>상토는 사람이 키우기 편하지만 변수와 오염 요소가 많다. 무토양 매트는 수분 버퍼가 작아 어렵지만, 표준화·센싱·자동제어에는 더 유리하다.</p></div>
+      <div class="card"><h3>2. 트레이 무게 기반 수분 제어</h3><p>단순 타이머 급수 대신 트레이 무게로 매트 수분량을 추정한다. 건조/적정/과습 구간을 수치화하면 자동급수의 품질이 올라간다.</p></div>
+      <div class="card"><h3>3. 급수-흡수-배수-건조 사이클</h3><p>아래에 물을 계속 담가두는 방식이 아니라, 일정 시간 급수 후 매트 흡수, 잔수 배수, 팬 환기로 과습 시간을 줄이는 시퀀스 제어가 핵심이다.</p></div>
+      <div class="card"><h3>4. 급수와 환기 연동</h3><p>마이크로그린은 밀식이라 캐노피 습기 정체가 곰팡이로 이어질 수 있다. 급수 직후 팬 제어, 습도 기반 팬 제어, 건조 위험 시 팬 정지 조건을 묶어야 한다.</p></div>
+      <div class="card"><h3>5. 매트 표준화와 레시피화</h3><p>hemp, coco, jute, wood fiber, silicone 매트는 흡수량·건조속도·뿌리 고정력이 다르다. 매트 1종을 표준 부품으로 고르고 전용 급수 레시피를 만든다.</p></div>
+      <div class="card"><h3>6. 파종 균일성/뿌리 고정성</h3><p>무순이 잘 서는지는 매트 표면 구조, 파종 밀도, 초기 암실/압착 조건, 광량 균일도에 영향을 받는다. 씨앗 분포 가이드도 설계 과제다.</p></div>
+      <div class="card"><h3>7. 고정 카메라 기반 반복 데이터</h3><p>카메라를 움직이는 것보다 같은 위치·거리·각도에서 매일 같은 조건으로 찍는 것이 생장 비교, 쓰러짐, 색 변화, 곰팡이 의심 감지에 유리하다.</p></div>
+      <div class="card"><h3>8. 비순환/구역 분리 급수</h3><p>초기에는 물 재사용보다 병 확산 방지가 중요할 수 있다. 트레이별 또는 존별로 급수/배수를 분리해 오염 전파 리스크를 줄인다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="business-differentiation">
+  <div class="section-head"><div class="kicker">Business Differentiation</div><h2>사업적 차별화 후보</h2><p>작물을 파는 사업과 자동화 모듈을 만드는 사업을 분리해서 생각한다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>차별화 후보</th><th>의미</th><th>검증 방법</th></tr></thead><tbody>
+      <tr><td>소형 가게용 반복 납품</td><td>대량 도매가 아니라 동네 식당·카페·횟집에 소량 신선 공급</td><td>샘플 후 재주문 여부, 주당 필요량, 가격 저항 확인</td></tr>
+      <tr><td>4일~7일 초단기 회전율</td><td>무순은 작물 회전이 빨라 실험·납품 리듬을 빠르게 돌릴 수 있음</td><td>4일 수확품과 6~7일 수확품의 길이·중량·맛·상품성 비교</td></tr>
+      <tr><td>자동화로 노동 절감</td><td>농업 노하우보다 급수·배수·환기·기록 자동화로 반복성을 확보</td><td>수동 대비 하루 작업시간, 실패율, 폐기율 비교</td></tr>
+      <tr><td>청결한 무토양 수확물</td><td>상토 대비 수확물 오염과 세척 부담을 줄이는 방향</td><td>수확 후 이물, 세척 시간, 포장 편의성 비교</td></tr>
+      <tr><td>표준 트레이 모듈</td><td>작물 판매를 넘어 트레이/매트/급수/센서 모듈로 확장 가능</td><td>트레이 복제 시 같은 결과가 나오는지 확인</td></tr>
+      <tr><td>데이터 기반 품질 설명</td><td>고객에게 “감으로 키웠다”가 아니라 재배 batch, 수확일, 조건을 설명 가능</td><td>Batch ID, 사진 기록, 수확량 로그를 납품 자료로 정리</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section id="radish-test-plan">
+  <div class="section-head"><div class="kicker">Validation Plan</div><h2>무순 기준 검증 과제</h2><p>남들도 어려운지는 나중에 검증하되, 지금은 설계자가 풀 문제로 쪼갠다.</p></div>
+  <div class="section-body">
+    <h3>1차 A/B 테스트</h3>
+    <div class="table-wrap"><table><thead><tr><th>실험군</th><th>구조</th><th>목적</th></tr></thead><tbody>
+      <tr><td>A</td><td>상토/코코피트 + 저면관수</td><td>재배 안정성 기준군</td></tr>
+      <tr><td>B</td><td>코코 매트 + 저면관수</td><td>무토양 자동화 후보</td></tr>
+      <tr><td>C</td><td>hemp 또는 wood fiber 매트 + 저면관수</td><td>뿌리 고정력·수분 제어 비교</td></tr>
+      <tr><td>D</td><td>재사용 매트 또는 구조 매트 + 저면관수</td><td>장기 제품화 후보</td></tr>
+    </tbody></table></div>
+    <h3>4일 수확 검증 지표</h3>
+    <div class="grid two">
+      <div class="card"><h3>상품성 지표</h3><ul class="checks"><li>줄기 길이와 굵기</li><li>수확 중량 g/tray</li><li>맛과 매운맛 강도</li><li>색상과 균일도</li><li>쓰러짐/엉킴 여부</li></ul></div>
+      <div class="card"><h3>자동화 지표</h3><ul class="checks"><li>급수 횟수와 총 급수량</li><li>트레이 무게 변화</li><li>곰팡이/냄새 발생 여부</li><li>수확물 청결성</li><li>수동 작업시간</li></ul></div>
+    </div>
+    <div class="callout" style="margin-top:16px">판단 기준: 무토양 매트가 상토보다 약간 어렵거나 수확량이 조금 낮아도, 자동화성·청결성·반복성·작업시간 절감이 크면 프로젝트 기준으로는 무토양이 이긴다.</div>
+  </div>
+</section>
+
+<section id="final-hypothesis">
+  <div class="section-head"><div class="kicker">Working Hypothesis</div><h2>현재 작업 가설</h2><p>검증 전 임시 결론. 재배 실험과 시장 조사를 통해 계속 수정한다.</p></div>
+  <div class="section-body">
+    <div class="callout">무순 파일럿의 최종 목표 구조는 <b>무토양 매트 + 저면관수 자동화</b>로 둔다. 상토/코코피트 방식은 재배 안정성 기준군으로 사용하고, 차별화는 수분 제어·배수·환기·매트 표준화·고정 카메라 데이터·반복 납품 가능성에서 찾는다.</div>
+  </div>
+</section>
+</div><aside class="side-panel"><h3>카테고리 이동</h3>
+<a class="" href="overview.html">🧭 프로젝트 개요</a>
+<a class="" href="decision.html">🤔 AI 필요성/사업 판단</a>
+<a class="active" href="differentiation.html">🧩 차별화 포인트</a>
+<a class="" href="methods.html">🧱 스마트팜 농법 카테고리</a>
+<a class="" href="hydroponics.html">💧 수경재배 전략</a>
+<a class="" href="crops.html">🌿 작물 카테고리 DB</a>
+<a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a>
+<a class="" href="data-ai.html">🧠 데이터/AI 전략</a>
+<a class="" href="roadmap.html">🗺️ 실행 로드맵</a>
+<a class="" href="cautions.html">⚠️ 상충·주의 포인트</a>
+<a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+<div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid">
+<a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a>
+<a class="category-card" href="decision.html"><div class="icon">🤔</div><h3>AI 필요성/사업 판단</h3><p>이 일을 해야 하는지, AI가 언제 필요한지, 소형 테스트와 대규모 목표를 분리해 판단</p><span class="go">열기 →</span></a><a class="category-card" href="differentiation.html"><div class="icon">🧩</div><h3>사업적·기술적 차별화 포인트</h3><p>무순/마이크로그린 자동화에서 일부러 남길 설계 과제와 검증 가설 정리</p><span class="go">열기 →</span></a>
+<a class="category-card" href="methods.html"><div class="icon">🧱</div><h3>스마트팜 농법 카테고리</h3><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p><span class="go">열기 →</span></a>
+<a class="category-card" href="hydroponics.html"><div class="icon">💧</div><h3>수경재배 전략</h3><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p><span class="go">열기 →</span></a>
+<a class="category-card" href="crops.html"><div class="icon">🌿</div><h3>작물 카테고리 DB</h3><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p><span class="go">열기 →</span></a>
+<a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a>
+<a class="category-card" href="data-ai.html"><div class="icon">🧠</div><h3>데이터/AI 전략</h3><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p><span class="go">열기 →</span></a>
+<a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a>
+<a class="category-card" href="cautions.html"><div class="icon">⚠️</div><h3>상충·주의 포인트</h3><p>마이크로그린 위치, 센서 과투자, 햇빛 데이터, Jetson 과투자 등 리스크</p><span class="go">열기 →</span></a>
+<a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a>
+</div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>차별화 포인트 추가</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>스마트팜 농법 카테고리 · 스마트팜 시스템 개발 프로젝트</title>
+<link href="style.css" rel="stylesheet"/>
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link" href="differentiation.html">차별화 포인트</a><a class="nav-link active" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link" href="hydroponics.html">수경재배 전략</a><a class="nav-link" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+<div class="breadcrumbs"><a href="index.html">홈</a> / 스마트팜 농법 카테고리</div>
+<div class="page-title"><div class="kicker">02 · Farming Methods</div><h1>스마트팜 농법 카테고리</h1><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p></div>
+<div class="layout"><div class="content-stack"><section id="methods">
+<div class="section-head"><div class="kicker">02 · Farming Methods</div><h2>스마트팜 농법 카테고리</h2><p>앞으로 농법도 카테고리별로 계속 누적 관리한다.</p></div>
+<div class="section-body">
+<table>
+<tr><th>농법/구조</th><th>개념</th><th>장점</th><th>단점/주의</th><th>현 단계 적합도</th></tr>
+<tr><td>토경 스마트팜</td><td>흙 기반 + 센서/관수 자동화</td><td>현장 농업과 연결 쉬움</td><td>흙 편차·병해·실내 위생 부담</td><td>낮음</td></tr>
+<tr><td>수경재배</td><td>물/양액으로 뿌리 환경 관리</td><td>pH/EC/수온 데이터화, 자동화 쉬움</td><td>센서 보정·물 오염·전기 의존</td><td>높음</td></tr>
+<tr><td>고형배지 양액재배</td><td>코코피트/암면 + 점적관수</td><td>깻잎·바질·딸기 등 확장성</td><td>배지 관리/폐기/점적 노즐 이슈</td><td>중간~높음</td></tr>
+<tr><td>수직농장</td><td>다단 선반 + LED + 수경/배지</td><td>1평 공간 효율 극대화</td><td>LED/환기/열관리 비용</td><td>높음</td></tr>
+<tr><td>마이크로그린 트레이</td><td>짧은 주기 저면관수 재배</td><td>사람 학습·장비 검증·데이터 루프 빠름</td><td>곰팡이·위생·파종량 관리</td><td>파일럿용 높음</td></tr>
+<tr><td>아쿠아포닉스</td><td>어류 + 식물 순환</td><td>스토리성/친환경 이미지</td><td>수질·어류 관리까지 복잡</td><td>초기 부적합</td></tr>
+<tr><td>에어로포닉스</td><td>뿌리에 미스트 분사</td><td>고성능·연구형 이미지</td><td>노즐 막힘·제어 난이도 높음</td><td>나중 단계</td></tr>
+</table>
+<div class="callout">현 단계의 핵심 방향: 토경보다 수경/수직/트레이 구조가 전자·센서·제어·데이터화에 더 잘 맞는다.</div>
+</div>
+</section><div class="archive-block" id="detail"><div class="archive-head"><h2>이 카테고리의 상세 슬라이드</h2><p>기존 PPT에서 해당 주제와 연결되는 슬라이드만 모았다. 필요한 부분만 펼쳐서 보면 된다.</p></div><details class="slide-detail">
+<summary><span>Slide 05</span> 스마트팜 농법 카테고리</summary>
+<div class="slide-body">수경재배만 바로 들어가기 전에, 가능한 농법을 먼저 분류해서 프로젝트 범위를 좁힘<br/><br/>농법/구조 | 개념 | 장점 | 초기 적합도<br/>토경 스마트팜 | 흙 기반 재배 + 센서/자동화 | 기존 농업과 연결 쉬움 | 낮음: 흙 편차/벌레/공간 부담<br/>고형배지 양액재배 | 코코피트·암면 등에 양액 공급 | 딸기/깻잎/바질 등 확장성 | 중간: 점적/배액 관리 필요<br/>순수 수경재배 | 흙 없이 물/양액으로 뿌리 관리 | 센서·제어·데이터화 유리 | 높음: 상추/엽채류 기준<br/>수직농장 | 다단 선반 + LED + 재배 시스템 | 공간 효율/조건 통제 | 높음: 1평 실험과 궁합 좋음<br/>마이크로그린 트레이 | 짧은 주기·저면관수 중심 | 실험 반복/장치 검증 빠름 | 매우 높음: 파일럿용<br/>에어로포닉스 | 뿌리에 미스트/분무 공급 | 산소 공급/고효율 가능 | 낮음: 막힘/제어 난이도<br/>아쿠아포닉스 | 물고기+식물 순환 | 스토리/순환 이미지 | 낮음: 생물관리 복잡<br/><br/>현재 전략: 토경/아쿠아/에어로는 보류하고, “마이크로그린 파일럿 → 상추 중심 수경재배 → LED 수직농장화” 순서로 좁힌다.</div>
+</details></div></div><aside class="side-panel"><h3>카테고리 이동</h3><a class="" href="overview.html">🧭 프로젝트 개요</a><a class="" href="decision.html">🤔 AI 필요성/사업 판단</a><a class="" href="differentiation.html">🧩 차별화 포인트</a><a class="active" href="methods.html">🧱 스마트팜 농법 카테고리</a><a class="" href="hydroponics.html">💧 수경재배 전략</a><a class="" href="crops.html">🌿 작물 카테고리 DB</a><a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a><a class="" href="data-ai.html">🧠 데이터/AI 전략</a><a class="" href="roadmap.html">🗺️ 실행 로드맵</a><a class="" href="cautions.html">⚠️ 상충·주의 포인트</a><a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+<div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid"><a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a><a class="category-card" href="decision.html"><div class="icon">🤔</div><h3>AI 필요성/사업 판단</h3><p>이 일을 해야 하는지, AI가 언제 필요한지, 소형 테스트와 대규모 목표를 분리해 판단</p><span class="go">열기 →</span></a><a class="category-card" href="differentiation.html"><div class="icon">🧩</div><h3>사업적·기술적 차별화 포인트</h3><p>무순/마이크로그린 자동화에서 일부러 남길 설계 과제와 검증 가설 정리</p><span class="go">열기 →</span></a><a class="category-card" href="hydroponics.html"><div class="icon">💧</div><h3>수경재배 전략</h3><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p><span class="go">열기 →</span></a><a class="category-card" href="crops.html"><div class="icon">🌿</div><h3>작물 카테고리 DB</h3><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p><span class="go">열기 →</span></a><a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a><a class="category-card" href="data-ai.html"><div class="icon">🧠</div><h3>데이터/AI 전략</h3><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p><span class="go">열기 →</span></a><a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a><a class="category-card" href="cautions.html"><div class="icon">⚠️</div><h3>상충·주의 포인트</h3><p>마이크로그린 위치, 센서 과투자, 햇빛 데이터, Jetson 과투자 등 리스크</p><span class="go">열기 →</span></a><a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a></div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>카테고리별 HTML 분리 · 상세자료 보존</span></div></footer>
+</body>
+</html>

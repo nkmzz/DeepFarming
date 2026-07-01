@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>데이터/AI 전략 · 스마트팜 시스템 개발 프로젝트</title>
+<link href="style.css" rel="stylesheet"/>
+
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"/>
+<meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex"/>
+<script>document.documentElement.setAttribute('data-auth-pending','1');</script>
+<style>
+html[data-auth-pending="1"] body > :not(#authGate){display:none!important;}
+#authGate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef7ee,#e6eef8);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;}
+#authGate .auth-panel{width:min(460px,100%);background:rgba(255,255,255,.94);border:1px solid rgba(30,50,80,.14);border-radius:24px;box-shadow:0 18px 60px rgba(20,40,70,.18);padding:34px;}
+#authGate .auth-kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2d7a46;margin-bottom:10px;}
+#authGate h1{font-size:28px;line-height:1.25;margin:0 0 10px;}
+#authGate p{line-height:1.65;margin:0 0 18px;color:#4a5568;}
+#authGate form{display:flex;gap:10px;margin:20px 0 10px;}
+#authGate input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #cbd5e1;font-size:16px;}
+#authGate button{padding:13px 18px;border:0;border-radius:12px;background:#1f7a4d;color:white;font-weight:800;cursor:pointer;}
+#authGate .auth-message{min-height:24px;color:#b42318;font-weight:700;margin:6px 0 0;}
+#authGate .auth-note{font-size:12px;color:#64748b;margin-top:18px;}
+@media(max-width:520px){#authGate form{flex-direction:column;}#authGate .auth-panel{padding:26px 20px;}}
+</style>
+<script defer src="auth.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav-inner"><a class="brand" href="index.html"><span>Smartfarm</span> Project</a><a class="nav-link" href="overview.html">프로젝트 개요</a><a class="nav-link" href="decision.html">AI 필요성/사업 판단</a><a class="nav-link" href="differentiation.html">차별화 포인트</a><a class="nav-link" href="methods.html">스마트팜 농법 카테고리</a><a class="nav-link" href="hydroponics.html">수경재배 전략</a><a class="nav-link" href="crops.html">작물 카테고리 DB</a><a class="nav-link" href="hardware.html">하드웨어 카테고리 DB</a><a class="nav-link active" href="data-ai.html">데이터/AI 전략</a><a class="nav-link" href="roadmap.html">실행 로드맵</a><a class="nav-link" href="cautions.html">상충·주의 포인트</a><a class="nav-link" href="archive.html">상세 아카이브</a></nav></header>
+<main>
+<div class="breadcrumbs"><a href="index.html">홈</a> / 데이터/AI 전략</div>
+<div class="page-title"><div class="kicker">06 · Data &amp; AI</div><h1>데이터/AI 전략</h1><p>Batch ID, 이미지 데이터, 수확무게 라벨, 작물별 모델 분리 전략</p></div>
+<div class="layout"><div class="content-stack"><section id="data">
+<div class="section-head"><div class="kicker">06 · Data &amp; AI</div><h2>데이터/AI 전략</h2><p>카메라는 매일 보는 눈이고, 무게는 마지막 성적표다.</p></div>
+<div class="section-body">
+<table>
+<tr><th>분류</th><th>수집 항목</th><th>목적</th></tr>
+<tr><td>환경</td><td>온도, 습도, 광량, 수위, 급수량/주기, pH/EC/수온(확장)</td><td>성장 차이의 원인 변수</td></tr>
+<tr><td>성장</td><td>시간별 사진, 타임랩스, 발아율, 잎면적, 색, 균일도</td><td>카메라 기반 생육 지표</td></tr>
+<tr><td>변수</td><td>작물 종류, 파종량, 매트, 계절/날씨, LED 조건</td><td>실험 조건 비교</td></tr>
+<tr><td>결과</td><td>수확량, 수확일, 총중량, 상품중량, 상품률, 불량률</td><td>AI 학습용 정답 라벨</td></tr>
+<tr><td>운영</td><td>작업시간, 실패 원인, 곰팡이 여부, 세척/폐기</td><td>사업성/유지보수 판단</td></tr>
+</table>
+<div class="grid two">
+<div class="card"><h3>이미지 데이터의 역할</h3><p>매일 촬영해 잎 면적, 색상, 균일도, 결주, 곰팡이, 쓰러짐 같은 생육 중간 지표를 만든다. 촬영 위치·조명·노출·화이트밸런스·촬영시간을 고정해야 한다.</p></div>
+<div class="card"><h3>무게 데이터의 역할</h3><p>수확량이 최종 KPI라 무게는 필수. 다만 매일 잴 필요는 없고, 수확 시 트레이/배치 단위로 총중량·상품중량·불량 사유를 기록하면 된다.</p></div>
+</div>
+<h3>Batch ID 기준 데이터 구조</h3>
+<div class="callout"><span class="code">batch_id</span>를 중심으로 사진, 센서 로그, 실험 조건, 수확 무게, 상품률, 실패 사유를 묶는다. 실패 데이터도 버리지 않는다.</div>
+<div class="flow"><div class="step"><strong>① 이미지 상태 추정</strong>잎 면적·색·균일도</div><div class="step"><strong>② 수확무게로 보정</strong>총중량·상품중량</div><div class="step"><strong>③ 조건 추천</strong>광량·급수·pH/EC</div><div class="step"><strong>④ 작물별 모델 분리</strong>상추/마이크로그린/청경채 등</div></div>
+</div>
+</section><section id="ai-depth-scope">
+  <div class="section-head"><div class="kicker">AI Scope</div><h2>AI/딥러닝은 단계와 목적을 분리해서 판단</h2><p>오늘 논의한 “딥러닝은 장기 과제”라는 표현은 자체 수확 데이터만으로 모델을 직접 학습하는 경우에 가깝다. 기존 AI 심화 판단은 유지하되, 적용 범위를 나눈다.</p></div>
+  <div class="section-body">
+    <div class="table-wrap"><table><thead><tr><th>구분</th><th>초기 가능성</th><th>설명</th></tr></thead><tbody>
+      <tr><td>룰 기반 자동화</td><td>즉시 가능</td><td>급수, 조명, 팬, 알람은 명시 조건으로 처리</td></tr>
+      <tr><td>통계/그래프/이상치</td><td>즉시 가능</td><td>센서 로그와 수확 결과의 상관관계 확인</td></tr>
+      <tr><td>이미지 지표 추출</td><td>초기 가능</td><td>고정 카메라 기준 잎면적, 색, 균일도, 결주 확인</td></tr>
+      <tr><td>기존 비전 모델 활용</td><td>조건부 가능</td><td>곰팡이·병반·이상 감지는 공개 모델/전이학습 활용 가능성 검토</td></tr>
+      <tr><td>수확량 예측 ML</td><td>데이터 축적 후</td><td>Batch ID, 환경, 이미지, 수확무게가 충분히 쌓인 뒤 평가</td></tr>
+      <tr><td>자체 딥러닝 학습</td><td>장기 과제</td><td>1평 데이터만으로는 부족할 수 있어 작물·조건·반복 수 확보 필요</td></tr>
+    </tbody></table></div>
+    <div class="callout" style="margin-top:16px">정리: AI를 버리는 것이 아니라, 초기는 데이터 수집/이미지 지표/이상 감지, 중기는 예측, 장기는 조건 최적화와 자율 운영으로 나눈다.</div>
+  </div>
+</section>
+<div class="archive-block" id="detail"><div class="archive-head"><h2>이 카테고리의 상세 슬라이드</h2><p>기존 PPT에서 해당 주제와 연결되는 슬라이드만 모았다. 필요한 부분만 펼쳐서 보면 된다.</p></div><details class="slide-detail">
+<summary><span>Slide 37</span> 데이터 수집 계획</summary>
+<div class="slide-body">처음부터 “나중에 AI가 읽을 수 있는 형태”로 남기는 것이 핵심<br/><br/>마이크로그린 스마트팜 프로젝트 · 9<br/><br/>분류<br/><br/>수집 항목<br/><br/>목적<br/><br/>환경<br/><br/>온도, 습도, 광량, 수위, 급수량/주기<br/><br/>성장 차이의 원인 변수<br/><br/>성장<br/><br/>시간별 사진, 타임랩스, 발아율<br/><br/>카메라 기반 생육 지표<br/><br/>변수<br/><br/>작물 종류, 파종량, 매트, 계절/날씨<br/><br/>실험 조건 비교<br/><br/>결과<br/><br/>수확량, 수확일, 상품성/불량률<br/><br/>AI 학습용 정답 라벨<br/><br/>운영<br/><br/>작업시간, 실패 원인, 곰팡이 여부<br/><br/>사업성/유지보수 판단<br/><br/>데이터셋 설계 기준<br/><br/>배치 ID를 반드시 부여<br/>사진·센서·수확 무게를 같은 ID로 묶기<br/>실험 조건은 한 번에 하나씩만 바꾸기<br/>실패 데이터도 버리지 않기</div>
+</details><details class="slide-detail">
+<summary><span>Slide 38</span> AI 전략: 잎 상태는 매일 보는 눈, 무게는 마지막 성적표</summary>
+<div class="slide-body">목표가 수확량이면 무게는 필수. 다만 매일 잴 필요는 없음<br/><br/>마이크로그린 스마트팜 프로젝트 · 10<br/><br/>이미지<br/><br/>매일 촬영<br/><br/>생육지표<br/><br/>잎 면적·색·균일도<br/><br/>환경값<br/><br/>pH/EC는 확장 시 추가<br/><br/>수확라벨<br/><br/>총중량·상품중량<br/><br/>예측/추천<br/><br/>수확일·조건 추천<br/><br/>무게 데이터의 역할<br/><br/>수확량은 최종 KPI라 무게를 빼기 어려움<br/>수확 시점에 트레이/배치 단위로 측정하면 충분<br/>총중량보다 “상품 가능 중량”이 더 중요<br/>물기 제거 시간, 용기 tare, 측정 기준을 고정<br/><br/>AI는 처음부터 완전 자율이 아니라,<br/>① 이미지로 상태 추정 → ② 수확무게로 보정 → ③ 조건 추천으로 발전</div>
+</details></div></div><aside class="side-panel"><h3>카테고리 이동</h3><a class="" href="overview.html">🧭 프로젝트 개요</a><a class="" href="decision.html">🤔 AI 필요성/사업 판단</a><a class="" href="differentiation.html">🧩 차별화 포인트</a><a class="" href="methods.html">🧱 스마트팜 농법 카테고리</a><a class="" href="hydroponics.html">💧 수경재배 전략</a><a class="" href="crops.html">🌿 작물 카테고리 DB</a><a class="" href="hardware.html">⚙️ 하드웨어 카테고리 DB</a><a class="active" href="data-ai.html">🧠 데이터/AI 전략</a><a class="" href="roadmap.html">🗺️ 실행 로드맵</a><a class="" href="cautions.html">⚠️ 상충·주의 포인트</a><a class="" href="archive.html">📚 상세 아카이브</a></aside></div>
+<div class="bottom-nav"><h2>다른 카테고리 보기</h2><div class="category-grid"><a class="category-card" href="overview.html"><div class="icon">🧭</div><h3>프로젝트 개요</h3><p>내 현재 상황, 목표, 제약조건, 왜 스마트팜을 보는지 정리</p><span class="go">열기 →</span></a><a class="category-card" href="decision.html"><div class="icon">🤔</div><h3>AI 필요성/사업 판단</h3><p>이 일을 해야 하는지, AI가 언제 필요한지, 소형 테스트와 대규모 목표를 분리해 판단</p><span class="go">열기 →</span></a><a class="category-card" href="differentiation.html"><div class="icon">🧩</div><h3>사업적·기술적 차별화 포인트</h3><p>무순/마이크로그린 자동화에서 일부러 남길 설계 과제와 검증 가설 정리</p><span class="go">열기 →</span></a><a class="category-card" href="methods.html"><div class="icon">🧱</div><h3>스마트팜 농법 카테고리</h3><p>토경, 배지, 수경, 수직농장, 에어로포닉스, 아쿠아포닉스 비교</p><span class="go">열기 →</span></a><a class="category-card" href="hydroponics.html"><div class="icon">💧</div><h3>수경재배 전략</h3><p>왜 수경재배가 전자·센서·제어·AI와 잘 맞는지, 수경 방식별 특징</p><span class="go">열기 →</span></a><a class="category-card" href="crops.html"><div class="icon">🌿</div><h3>작물 카테고리 DB</h3><p>마이크로그린, 상추, 청경채, 루꼴라, 바질, 깻잎 등 후보 관리</p><span class="go">열기 →</span></a><a class="category-card" href="hardware.html"><div class="icon">⚙️</div><h3>하드웨어 카테고리 DB</h3><p>카메라, 센서, LED, 펌프, 전원, 안전, AI 연산 후보</p><span class="go">열기 →</span></a><a class="category-card" href="roadmap.html"><div class="icon">🗺️</div><h3>실행 로드맵</h3><p>현재~가을, 겨울 LED 전환, 내년 데이터 기반 고도화 단계</p><span class="go">열기 →</span></a><a class="category-card" href="cautions.html"><div class="icon">⚠️</div><h3>상충·주의 포인트</h3><p>마이크로그린 위치, 센서 과투자, 햇빛 데이터, Jetson 과투자 등 리스크</p><span class="go">열기 →</span></a><a class="category-card" href="archive.html"><div class="icon">📚</div><h3>상세 슬라이드 아카이브</h3><p>기존 PPT 48장 텍스트를 전체 보존한 원문형 아카이브.</p><span class="go">열기 →</span></a></div></div>
+</main>
+<footer class="footer"><div class="footer-inner"><span>스마트팜 시스템 개발 프로젝트 · 멀티페이지 버전</span><span>카테고리별 HTML 분리 · 상세자료 보존</span></div></footer>
+</body>
+</html>

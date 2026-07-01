@@ -1,3 +1,3 @@
-# DeepFarming
+# Smartfarm Notes
 
-Private working notes for a smart farm project.
+Personal review copy for GitHub Pages.
