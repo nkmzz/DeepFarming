@@ -1,0 +1,15 @@
+DeepFarming security note
+
+This GitHub Pages site uses a client-side JavaScript password gate and noindex/robots hints.
+It is not real server-side authentication.
+
+What it can do:
+- Stop casual visitors who do not know the password
+- Reduce search-engine discovery via robots.txt and noindex
+
+What it cannot do:
+- Protect source files in a public repository
+- Prevent access by someone who knows the URL and inspects the source
+- Replace real authentication, private hosting, or access control
+
+For stronger protection, use Cloudflare Access, private hosting, or GitHub Enterprise/organization features that support private Pages access control.
